@@ -24,7 +24,7 @@ gem 'therubyracer', platforms: :ruby
 # CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
-# gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5'
 
 # gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap CSS toolkit for Rails 4, 3.x Asset Pipeline (https://github.com/seyhunak/twitter-bootstrap-rails)
