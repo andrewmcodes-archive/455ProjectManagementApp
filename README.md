@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/andrewmcodes/455ProjectManagementApp.svg?branch=master)](https://travis-ci.org/andrewmcodes/455ProjectManagementApp)
+[![Maintainability](https://api.codeclimate.com/v1/badges/246a9cc00d6430458fb1/maintainability)](https://codeclimate.com/github/andrewmcodes/455ProjectManagementApp/maintainability)
+<a href="https://codeclimate.com/github/andrewmcodes/455ProjectManagementApp/test_coverage"><img src="https://api.codeclimate.com/v1/badges/246a9cc00d6430458fb1/test_coverage" /></a>
 # Project Management App
 #### *CSC 455 Project - UNCW, Spring 2018*
   The Project Management App (PMA) is a tool for companies and organizations to increase their productivity through the use of streamlined collaboration and file sharing. The app will utilize software multitenancy architecture along with the software as a service (SaaS) model to allow for the creation of teams with different roles. 
