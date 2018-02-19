@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: tenants
+#
+#  id         :integer          not null, primary key
+#  tenant_id  :integer
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  plan       :string
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

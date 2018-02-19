@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: members
+#
+#  id         :integer          not null, primary key
+#  tenant_id  :integer
+#  user_id    :integer
+#  first_name :string
+#  last_name  :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Member < ApplicationRecord
   belongs_to :user
   acts_as_tenant

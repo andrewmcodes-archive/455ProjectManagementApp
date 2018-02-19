@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: tenants
+#
+#  id         :integer          not null, primary key
+#  tenant_id  :integer
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  plan       :string
+#
+
 class Tenant < ApplicationRecord
   acts_as_universal_and_determines_tenant
   has_many :members, dependent: :destroy
