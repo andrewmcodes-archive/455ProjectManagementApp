@@ -9,8 +9,10 @@ end
 
 # Full-stack web application framework. (http://rubyonrails.org)
 gem 'rails', '~> 5.1.4'
+# Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/] (https://bitbucket.org/ged/ruby-pg)
+gem 'pg', '~> 0.18'
 # Easy multi-tenanting for Rails + Devise (https://github.com/jekuno/milia)
-gem 'milia', '~> 1.3', '>= 1.3.1'
+gem 'milia', '~> 1.3'
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
 gem 'devise', '~> 4.2'
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
@@ -76,8 +78,7 @@ group :development do
 end
 
 group :production do
-  # Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/] (https://bitbucket.org/ged/ruby-pg)
-  gem 'pg', '~> 0.18'
+
 end
 # Timezone Data for TZInfo (http://tzinfo.github.io)
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

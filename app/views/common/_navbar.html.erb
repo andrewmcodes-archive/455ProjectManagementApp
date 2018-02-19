@@ -11,15 +11,14 @@
     </span>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <% if current_user && current_user.is_admin? %>
+        <% if current_user %>
           <li>
             <%= link_to "<i class='fa fa-users'></i> Add Members".html_safe,
                         new_member_path,
                         class: 'navbar-link btn btn-primary' %>
           </li>
           <li>
-            <%= link_to "<i class='fa fa-briefcase'></i> Change Plan".html_safe, edit_plan_path,
-                        class: 'btn btn-primary navbar-link' %>
+
           </li>
         <% end %>
       </ul>
