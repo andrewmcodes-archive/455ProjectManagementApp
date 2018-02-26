@@ -48,7 +48,8 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
 gem 'oink'
-
+# Simple Rails app configuration (https://github.com/laserlemon/figaro)
+gem 'figaro'
 group :development, :test do
   # This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org) (https://github.com/sparklemotion/sqlite3-ruby)
   gem 'sqlite3'
@@ -66,6 +67,7 @@ group :development do
   # Annotates Rails Models, routes, fixtures, and others based on the database schema. (http://github.com/ctran/annotate_models)
   gem 'annotate'
   # help to kill N+1 queries and unused eager loading. (http://github.com/flyerhzm/bullet)
+  # help to kill N+1 queries and unused eager loading. (https://github.com/flyerhzm/bullet)
   gem 'bullet'
   # Listen to file modifications (https://github.com/guard/listen)
   gem 'listen', '>= 3.0.5', '< 3.2'
