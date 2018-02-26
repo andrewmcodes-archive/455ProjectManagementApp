@@ -1,4 +1,5 @@
 before_deploy: "echo 'ready?'"
+before_script: 
 deploy:
   provider: heroku
   api_key:
@@ -6,4 +7,3 @@ deploy:
   app: crdc-project-management
   on:
     repo: andrewmcodes/455ProjectManagementApp
-  run: "rails db:migrate"
