@@ -1,21 +1,21 @@
-<%= bootstrap_devise_error_messages! %>
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.sign_up', default: 'Sign up') %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
+
+<div class="row">
+  <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+    <h1 class="text-center">Sign Up</h1>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
       <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: "Email Address" %>
       </div>
+
       <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
       </div>
+
       <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
       </div>
       <%= fields_for( :tenant ) do |w| %>
         <div class="form-group col-md-6 no-left-padding">
@@ -29,9 +29,13 @@
                        class: "form-control" %>
         </div>
       <% end %>
-      <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
-
+      <div class="form-group">
+        <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
+      </div>
     <% end %>
+
+    <div class="text-center">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>
-<%= render 'devise/shared/links' %>

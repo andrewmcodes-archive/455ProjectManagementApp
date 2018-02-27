@@ -1,31 +1,38 @@
-<%= bootstrap_devise_error_messages! %>
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.title', resource: resource_class.model_name.human , default: "Edit #{resource_name.to_s.humanize}") %></h4>
-  </div>
-  <div class="panel-body">
+<div class="row">
+  <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+    <h1 class="text-center">Account</h1>
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
       <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address' %>
       </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div class="alert alert-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
       <div class="form-group">
-        <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', default: "leave blank if you don't want to change it") %>)</i>
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password'  %>
+        <p class="form-text text-muted"><small>Leave password blank if you don't want to change it</small></p>
       </div>
+
       <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control'  %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password'  %>
       </div>
+
       <div class="form-group">
-        <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', default: 'we need your current password to confirm your changes') %>)</i>
-        <%= f.password_field :current_password, class: 'form-control' %>
+        <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current Password'  %>
+        <p class="form-text text-muted"><small>We need your current password to confirm your changes</small></p>
       </div>
-      <%= f.submit t('.update', default: 'Update'), class: 'btn btn-primary' %>
+
+      <div class="form-group">
+        <%= f.submit "Save Changes", class: 'btn btn-lg btn-block btn-primary' %>
+      </div>
     <% end %>
+    <hr>
+
+    <p class="text-center"><%= link_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
   </div>
 </div>
-
-<p><%= t('.unhappy', default: 'Unhappy') %>? <%= link_to t('.cancel_my_account', default: 'Cancel my account'), registration_path(resource_name), data: { confirm: t('.are_you_sure', default: "Are you sure?") }, method: :delete %>.</p>
-
-<%= link_to t('.back', default: 'Back'), :back %>
