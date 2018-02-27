@@ -30,8 +30,10 @@ gem 'turbolinks', '~> 5'
 
 # gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap CSS toolkit for Rails 4, 3.x Asset Pipeline (https://github.com/seyhunak/twitter-bootstrap-rails)
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'
 # Devise Bootstrap views with i18n support.
+gem 'bootstrap', '~> 4.0.0'
+
 gem 'devise-bootstrap-views'
 # gem 'bootstrap-datepicker-rails'
 # gem 'webpack-rails'
