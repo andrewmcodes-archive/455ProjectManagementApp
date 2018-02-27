@@ -1,0 +1,51 @@
+<%- model_class = Member -%>
+<div class="row">
+  <div class="col-lg-4 col-md-6 ml-auto mt-4 mr-auto">
+  <h1 class="text-center"><%=t '.title', :default => [:'helpers.titles.new', 'Invite New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+
+<%= form_for(@member, :html => { :class => "form login" }) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_expl" class="alert alert-danger">
+        <h3 class="alert-heading text-center"><%= pluralize(@member.errors.count, "error") %></h3>
+      <p class="text-center">prohibited this Member from being saved:</p>
+        <ul>
+          <% @member.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+  <% if @user.errors.any? %>
+      <div id="error_expl" class="alert alert-danger ">
+        <h3 class="alert-heading text-center"><%= pluralize(@user.errors.count, "error") %> </h3>
+        <p class="text-center">prohibited this Member from being saved:</p>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <%= fields_for( :user ) do |w| %>
+    <div class="form-group">
+        <%= w.text_field :email, :class => 'form-control', placeholder: 'Email' %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :first_name, :class => "form-control", placeholder: 'First Name' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :last_name, :class => "form-control", placeholder: 'Last Name' %>
+  </div>
+  <br />
+  <div class="form-group">
+    <button class="btn btn-primary btn-block btn-lg" type="submit">
+      Create user and invite
+    </button>
+  </div>
+      </div>
+      </div>
+<% end %>
