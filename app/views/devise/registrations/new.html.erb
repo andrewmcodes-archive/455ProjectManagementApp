@@ -18,13 +18,12 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
       </div>
       <%= fields_for( :tenant ) do |w| %>
-        <div class="form-group col-md-6 no-left-padding">
-          <%= w.label :name, 'Organization' %>
-          <span class='description'>(Unique name for your group or organization for the new account)</span>
-          <%= w.text_field :name, required: true, class: "form-control" %>
+        <div class="form-group text-center">
+
+          <%= w.text_field :name, required: true, class: "form-control", placeholder: 'Organization Name' %>
         </div>
-        <div class="form-group col-md-6 no-right-padding">
-          <%= w.label :plan %>
+        <div class="form-group text-center">
+          <%= w.label :plan, class: 'font-weight-bold' %>
           <%= w.select :plan, options_for_select(Plan.options, params[:plan]), {}, required: true,
                        class: "form-control" %>
         </div>
