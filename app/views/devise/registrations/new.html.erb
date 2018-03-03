@@ -1,40 +1,73 @@
+<script language="JavaScript">
+    Stripe.setPublishableKey("<%= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>");
+</script>
 
-<div class="row">
-  <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-    <h1 class="text-center">Sign Up</h1>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-
+<%= bootstrap_devise_error_messages! %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= t('.sign_up', :default => "Sign up") %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form", class: 'cc_form' }) do |f| %>
       <div class="form-group">
-        <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: "Email Address" %>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
-
       <div class="form-group">
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class: "form-control" %>
       </div>
-
       <div class="form-group">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
       </div>
       <%= fields_for( :tenant ) do |w| %>
-        <div class="form-group text-center">
-
-          <%= w.text_field :name, required: true, class: "form-control", placeholder: 'Organization Name' %>
+        <div class="form-group col-md-6 no-left-padding">
+          <%= w.label :name, 'Organization' %>
+          <span class='description'>(Unique name for your group or organization for the new account)</span>
+          <%= w.text_field :name, required: true, class: "form-control" %>
         </div>
-        <div class="form-group text-center">
-          <%= w.label :plan, class: 'font-weight-bold' %>
+        <div class="form-group col-md-6 no-right-padding">
+          <%= w.label :plan %>
           <%= w.select :plan, options_for_select(Plan.options, params[:plan]), {}, required: true,
                        class: "form-control" %>
         </div>
+        <%= fields_for( :payment ) do |p| %>
+          <div class="row col-md-12">
+            <div class="form-group col-md-4 no-left-padding">
+              <%= p.label :card_number, "Card Number", data: { stripe: 'label' } %>
+              <%= p.text_field :card_number, class: "form-control", required: true,
+                               data: { stripe: 'number' }  %>
+            </div>
+            <div class="form-group col-md-2">
+              <%= p.label :card_cvv, "Card CVV", data: { stripe: 'label' } %>
+              <%= p.text_field :card_cvv, class: "form-control", required: true,
+                               data: { stripe: 'cvv' }  %>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="col-md-12">
+                <%= p.label :card_expires, "Card Expires", data: { stripe: 'label' } %>
+              </div>
+              <div class="col-md-3">
+                <%= p.select :card_expires_month,
+                             options_for_select(Payment.month_options),
+                             { include_blank: 'Month' },
+                             "data-stripe" => "exp-month",
+                             class: "form-control", required: true  %>
+              </div>
+              <div class="col-md-3">
+                <%= p.select :card_expires_year,
+                             options_for_select(Payment.year_options.push),
+                             { include_blank: 'Year' },
+                             class: "form-control",
+                             data: { stripe: "exp-year"}, required: true  %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-      <div class="form-group">
-        <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
-      </div>
+      <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
     <% end %>
-
-    <div class="text-center">
-      <%= render "devise/shared/links" %>
-    </div>
   </div>
 </div>
+<%= render "devise/shared/links" %>

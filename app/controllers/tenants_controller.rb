@@ -1,7 +1,7 @@
 class TenantsController < ApplicationController
   before_action :set_tenant
-  def edit
-  end
+
+  def edit; end
 
   def update
     respond_to do |format|
@@ -20,8 +20,7 @@ class TenantsController < ApplicationController
               @payment.destroy
               @tenant.plan = "free"
               @tenant.save
-
-              redirect_to edit_tenant_path(@tenant) and return
+              redirect_to edit_tenant_path(@tenant)
             end
           end
           format.html { redirect_to edit_plan_path, notice: "Plan was successfully updated" }

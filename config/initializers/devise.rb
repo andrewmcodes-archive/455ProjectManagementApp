@@ -8,16 +8,16 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e9f4f5fd0ca6c16a1a2d8e3c16d56f9cc572ae50c553a6f900e339a4cbb8dc862498ac5ff1d0c616d3fd4cb20b74ccba4477098613598a1d742d75597e6badaf'
+  # config.secret_key = 'c84f59b9bfe147100de7cf03433a2b33616e5935a4ca3b6c98ba359153a2a101d2e2feaf080dc67149a9031184bc6121e60389720af0d2d2d89d8ec3602c50f1'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'do-not-reply@example.com'
+  config.mailer_sender = '<do-not-reply@example.com>'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -110,7 +110,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'e0ebedcbaab7ccfe06ded364a9a0960a1d7eef4192c66d00ce2e7184e46680ad138fed8d5fb30c1c38f6d2309c414b8c7f9fcfe6ca63674f5e3bc3704c042b97'
+  # config.pepper = '7fb00704f425a9669ac8cec9c977afc335c0d51e52a1ac6f8a1700936991830696e45d1f4f8e470ec54097c4236ce272be08af19a439977822a92a7f94a81b72'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -124,7 +124,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 0.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -132,7 +132,7 @@ Devise.setup do |config|
   # their account can't be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
-  # config.confirm_within = 3.days
+  config.confirm_within = 3.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
@@ -141,7 +141,7 @@ Devise.setup do |config|
   config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
-  # config.confirmation_keys = [:email]
+  config.confirmation_keys = [:email]
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.

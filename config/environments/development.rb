@@ -13,7 +13,7 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => "587",
     :authentication => :plain,
-    :user_name => "do-not-reply@example.com",
+    :user_name => "<do-not-reply@example.com>",
     :password => ENV["SMTP_ENTRY"],
     :enable_starttls_auto => true
   }
@@ -27,8 +27,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-  config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_options = { host: 'http://localhost:3000/' }
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -71,12 +70,6 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  # Bullet config
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.console = true
-    Bullet.rails_logger = true
-    Bullet.add_footer = true
-  end
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

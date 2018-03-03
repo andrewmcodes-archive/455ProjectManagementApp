@@ -11,10 +11,9 @@ end
 gem 'rails', '~> 5.1.4'
 # Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/] (https://bitbucket.org/ged/ruby-pg)
 gem 'pg', '~> 0.18'
-# Easy multi-tenanting for Rails + Devise (https://github.com/jekuno/milia)
-gem 'milia', '~> 1.3'
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
 gem 'devise', '~> 4.2'
+
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '~> 3.7'
 # Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
@@ -25,19 +24,21 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 # CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
 gem 'coffee-rails', '~> 4.2'
+gem 'twitter-bootstrap-rails'
 # Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
-gem 'turbolinks', '~> 5'
-
+# gem 'turbolinks', '~> 5'
 # gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap CSS toolkit for Rails 4, 3.x Asset Pipeline (https://github.com/seyhunak/twitter-bootstrap-rails)
 # gem 'twitter-bootstrap-rails'
 # Devise Bootstrap views with i18n support.
-gem 'bootstrap', '~> 4.0.0'
-
+# gem 'bootstrap', '~> 4.0.0'
+gem 'haml'
 gem 'devise-bootstrap-views'
-# gem 'bootstrap-datepicker-rails'
+# gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
+gem 'bootstrap-datepicker-rails'
 # gem 'webpack-rails'
-
+# Easy multi-tenanting for Rails + Devise (https://github.com/jekuno/milia)
+gem 'milia', github: 'jekuno/milia', branch: 'issue#76'
 # AWS SDK for Ruby (http://github.com/aws/aws-sdk-ruby)
 gem 'aws-sdk'
 # Ruby bindings for the Stripe API (https://stripe.com/docs/api/ruby)
@@ -52,6 +53,7 @@ gem 'font-awesome-rails'
 gem 'oink'
 # Simple Rails app configuration (https://github.com/laserlemon/figaro)
 gem 'figaro'
+gem 'rails-erd'
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
