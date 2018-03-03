@@ -22,8 +22,12 @@
             development.log
         </h1>
         <ul class="files">
-            <li>log/development.log</li>
-            <li>Last modified: 2018-03-03 05:24:19 -0500</li>
+            
+            <li>
+                log/development.log
+                
+            </li>
+            <li>Last modified: 2018-03-03 05:33:15 -0500</li>
         </ul>
     </div>
 
@@ -6794,7 +6798,157 @@ Rendered common/_navbar.html.erb (1.7ms)</code></pre>
 
 <p><a href="../../classes/Oink.html">Oink</a> Action: home#index Memory usage:
 4572456 | PID: 52908 Instantiation Breakdown: Total: 3 | Tenant: 2 | User:
-1 <a href="../../classes/Oink.html">Oink</a> Log Entry Complete</p>
+1 <a href="../../classes/Oink.html">Oink</a> Log Entry Complete Started GET
+“/doc” for 127.0.0.1 at 2018-03-03 05:31:09 -0500</p>
+
+<pre><code>[1m[35m (0.4ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m</code></pre>
+
+<p>Memory usage: 4572456 | PID: 52908 Instantiation Breakdown: Total: 2 |
+User: 1 | Tenant: 1 <a href="../../classes/Oink.html">Oink</a> Log Entry
+Complete</p>
+
+<p>ActionController::RoutingError (No route matches [GET] “/doc”):</p>
+
+<p>actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in
+`call&#39; web-console (3.5.1) lib/web_console/middleware.rb:135:in
+`call_app&#39; web-console (3.5.1) lib/web_console/middleware.rb:28:in
+`block in call&#39; web-console (3.5.1) lib/web_console/middleware.rb:18:in
+`catch&#39; web-console (3.5.1) lib/web_console/middleware.rb:18:in
+`call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/show_exceptions.rb:31:in `call&#39; railties
+(5.1.5) lib/rails/rack/logger.rb:36:in `call_app&#39; railties (5.1.5)
+lib/rails/rack/logger.rb:24:in `block in call&#39; activesupport (5.1.5)
+lib/active_support/tagged_logging.rb:69:in `block in tagged&#39;
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in
+`tagged&#39; activesupport (5.1.5)
+lib/active_support/tagged_logging.rb:69:in `tagged&#39; railties (5.1.5)
+lib/rails/rack/logger.rb:24:in `call&#39; sprockets-rails (3.2.1)
+lib/sprockets/rails/quiet_assets.rb:13:in `call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/remote_ip.rb:79:in `call&#39; actionpack
+(5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call&#39; rack
+(2.0.4) lib/rack/method_override.rb:22:in `call&#39; rack (2.0.4)
+lib/rack/runtime.rb:22:in `call&#39; activesupport (5.1.5)
+lib/active_support/cache/strategy/local_cache_middleware.rb:27:in
+`call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/executor.rb:12:in `call&#39; actionpack
+(5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call&#39; rack
+(2.0.4) lib/rack/sendfile.rb:111:in `call&#39; railties (5.1.5)
+lib/rails/engine.rb:522:in `call&#39; puma (3.11.2)
+lib/puma/configuration.rb:225:in `call&#39; puma (3.11.2)
+lib/puma/server.rb:624:in `handle_request&#39; puma (3.11.2)
+lib/puma/server.rb:438:in `process_client&#39; puma (3.11.2)
+lib/puma/server.rb:302:in `block in run&#39; puma (3.11.2)
+lib/puma/thread_pool.rb:120:in `block in spawn_thread&#39; Started GET
+“/doc” for 127.0.0.1 at 2018-03-03 05:31:44 -0500</p>
+
+<pre><code>[1m[35m (40.8ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m</code></pre>
+
+<p>Memory usage: 4458588 | PID: 53334 Instantiation Breakdown: Total: 0 <a
+href="../../classes/Oink.html">Oink</a> Log Entry Complete</p>
+
+<p>ActionController::RoutingError (No route matches [GET] “/doc”):</p>
+
+<p>actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in
+`call&#39; web-console (3.5.1) lib/web_console/middleware.rb:135:in
+`call_app&#39; web-console (3.5.1) lib/web_console/middleware.rb:28:in
+`block in call&#39; web-console (3.5.1) lib/web_console/middleware.rb:18:in
+`catch&#39; web-console (3.5.1) lib/web_console/middleware.rb:18:in
+`call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/show_exceptions.rb:31:in `call&#39; railties
+(5.1.5) lib/rails/rack/logger.rb:36:in `call_app&#39; railties (5.1.5)
+lib/rails/rack/logger.rb:24:in `block in call&#39; activesupport (5.1.5)
+lib/active_support/tagged_logging.rb:69:in `block in tagged&#39;
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in
+`tagged&#39; activesupport (5.1.5)
+lib/active_support/tagged_logging.rb:69:in `tagged&#39; railties (5.1.5)
+lib/rails/rack/logger.rb:24:in `call&#39; sprockets-rails (3.2.1)
+lib/sprockets/rails/quiet_assets.rb:13:in `call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/remote_ip.rb:79:in `call&#39; actionpack
+(5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call&#39; rack
+(2.0.4) lib/rack/method_override.rb:22:in `call&#39; rack (2.0.4)
+lib/rack/runtime.rb:22:in `call&#39; activesupport (5.1.5)
+lib/active_support/cache/strategy/local_cache_middleware.rb:27:in
+`call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/executor.rb:12:in `call&#39; actionpack
+(5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call&#39; rack
+(2.0.4) lib/rack/sendfile.rb:111:in `call&#39; railties (5.1.5)
+lib/rails/engine.rb:522:in `call&#39; puma (3.11.2)
+lib/puma/configuration.rb:225:in `call&#39; puma (3.11.2)
+lib/puma/server.rb:624:in `handle_request&#39; puma (3.11.2)
+lib/puma/server.rb:438:in `process_client&#39; puma (3.11.2)
+lib/puma/server.rb:302:in `block in run&#39; puma (3.11.2)
+lib/puma/thread_pool.rb:120:in `block in spawn_thread&#39; Started GET
+“/users/sign_in” for 127.0.0.1 at 2018-03-03 05:33:10 -0500 Processing by
+Milia::SessionsController#new as HTML</p>
+
+<pre><code>[1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  &quot;users&quot;.* FROM &quot;users&quot; WHERE (users.tenant_id IS NULL) AND &quot;users&quot;.&quot;id&quot; = $1 ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT $2[0m  [[&quot;id&quot;, 1], [&quot;LIMIT&quot;, 1]]</code></pre>
+
+<p>Redirected to <a href="http://localhost:3000">localhost:3000</a>/ Filter
+chain halted as :require_no_authentication rendered or redirected Completed
+302 Found in 544ms (ActiveRecord: 9.9ms)</p>
+
+<p><a href="../../classes/Oink.html">Oink</a> Action: milia/sessions#new
+Memory usage: 4459612 | PID: 53334 Instantiation Breakdown: Total: 1 |
+User: 1 <a href="../../classes/Oink.html">Oink</a> Log Entry Complete
+Started GET “/” for 127.0.0.1 at 2018-03-03 05:33:10 -0500 Processing by <a
+href="../../classes/HomeController.html#method-i-index">HomeController#index</a>
+as HTML</p>
+
+<pre><code>[1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  &quot;users&quot;.* FROM &quot;users&quot; WHERE (users.tenant_id IS NULL) AND &quot;users&quot;.&quot;id&quot; = $1 ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT $2[0m  [[&quot;id&quot;, 1], [&quot;LIMIT&quot;, 1]]</code></pre>
+
+<p>MILIA &gt;&gt;&gt;&gt;&gt; [Tenant#change_tenant] new: 1       old:%</p>
+
+<pre><code>[1m[36mTenant Load (0.7ms)[0m  [1m[34mSELECT  &quot;tenants&quot;.* FROM &quot;tenants&quot; WHERE (tenants.tenant_id IS NULL) AND &quot;tenants&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 1], [&quot;LIMIT&quot;, 1]]
+[1m[36mCACHE Tenant Load (0.0ms)[0m  [1m[34mSELECT  &quot;tenants&quot;.* FROM &quot;tenants&quot; WHERE (tenants.tenant_id IS NULL) AND &quot;tenants&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 1], [&quot;LIMIT&quot;, 1]]
+Rendering home/index.html.erb within layouts/application
+[1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM &quot;projects&quot; WHERE &quot;projects&quot;.&quot;tenant_id&quot; = $1 ORDER BY &quot;projects&quot;.&quot;id&quot; ASC LIMIT $2) subquery_for_count[0m  [[&quot;tenant_id&quot;, 1], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;projects&quot; WHERE &quot;projects&quot;.&quot;tenant_id&quot; = $1[0m  [[&quot;tenant_id&quot;, 1]]
+Rendered projects/_list.html.erb (7.7ms)
+Rendered home/index.html.erb within layouts/application (12.6ms)
+Rendered common/_navbar.html.erb (2.6ms)</code></pre>
+
+<p>Completed 200 OK in 1413ms (Views: 1285.1ms | ActiveRecord: 8.7ms)</p>
+
+<p><a href="../../classes/Oink.html">Oink</a> Action: home#index Memory usage:
+4495588 | PID: 53334 Instantiation Breakdown: Total: 3 | Tenant: 2 | User:
+1 <a href="../../classes/Oink.html">Oink</a> Log Entry Complete Started GET
+“/doc/app/index.html” for 127.0.0.1 at 2018-03-03 05:33:14 -0500 Memory
+usage: 4495588 | PID: 53334 Instantiation Breakdown: Total: 0 <a
+href="../../classes/Oink.html">Oink</a> Log Entry Complete</p>
+
+<p>ActionController::RoutingError (No route matches [GET]
+“/doc/app/index.html”):</p>
+
+<p>actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in
+`call&#39; web-console (3.5.1) lib/web_console/middleware.rb:135:in
+`call_app&#39; web-console (3.5.1) lib/web_console/middleware.rb:28:in
+`block in call&#39; web-console (3.5.1) lib/web_console/middleware.rb:18:in
+`catch&#39; web-console (3.5.1) lib/web_console/middleware.rb:18:in
+`call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/show_exceptions.rb:31:in `call&#39; railties
+(5.1.5) lib/rails/rack/logger.rb:36:in `call_app&#39; railties (5.1.5)
+lib/rails/rack/logger.rb:24:in `block in call&#39; activesupport (5.1.5)
+lib/active_support/tagged_logging.rb:69:in `block in tagged&#39;
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in
+`tagged&#39; activesupport (5.1.5)
+lib/active_support/tagged_logging.rb:69:in `tagged&#39; railties (5.1.5)
+lib/rails/rack/logger.rb:24:in `call&#39; sprockets-rails (3.2.1)
+lib/sprockets/rails/quiet_assets.rb:13:in `call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/remote_ip.rb:79:in `call&#39; actionpack
+(5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call&#39; rack
+(2.0.4) lib/rack/method_override.rb:22:in `call&#39; rack (2.0.4)
+lib/rack/runtime.rb:22:in `call&#39; activesupport (5.1.5)
+lib/active_support/cache/strategy/local_cache_middleware.rb:27:in
+`call&#39; actionpack (5.1.5)
+lib/action_dispatch/middleware/executor.rb:12:in `call&#39; actionpack
+(5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call&#39; rack
+(2.0.4) lib/rack/sendfile.rb:111:in `call&#39; railties (5.1.5)
+lib/rails/engine.rb:522:in `call&#39; puma (3.11.2)
+lib/puma/configuration.rb:225:in `call&#39; puma (3.11.2)
+lib/puma/server.rb:624:in `handle_request&#39; puma (3.11.2)
+lib/puma/server.rb:438:in `process_client&#39; puma (3.11.2)
+lib/puma/server.rb:302:in `block in run&#39; puma (3.11.2)
+lib/puma/thread_pool.rb:120:in `block in spawn_thread&#39;</p>
 
     </div>
   
