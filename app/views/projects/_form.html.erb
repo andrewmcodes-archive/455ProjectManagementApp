@@ -7,44 +7,36 @@
       </div>
       <div class="panel-body">
         <ul>
-        <% @project.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+          <% @project.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul>
       </div>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :title, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:title) %>
   </div>
-  <div class="form-group">
-    <%= f.label :details, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+  <div class="control-group">
+    <%= f.label :details, :class => 'control-label' %>
+    <div class="controls">
       <%= f.text_field :details, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:details) %>
   </div>
-  <div class="form-group">
-    <%= f.label :expected_completion_date, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+  <div class="control-group">
+    <%= f.label :expected_completion_date, :class => 'control-label' %>
+    <div class="controls">
       <%= f.text_field :expected_completion_date, :class => 'form-control datepicker' %>
     </div>
-    <%=f.error_span(:expected_completion_date) %>
   </div>
-
-
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.hidden_field :tenant_id, value: params[:tenant_id], :class => 'form-control' %>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                root_path, :class => 'btn btn-default' %>
-    </div>
-  </div>
+  <br />
+  <%= f.hidden_field :tenant_id, value: params[:tenant_id], :class => 'form-control' %>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              root_path, :class => 'btn btn-default' %>
 
 <% end %>

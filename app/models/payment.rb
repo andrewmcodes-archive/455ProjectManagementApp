@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: payments
+#
+#  id         :integer          not null, primary key
+#  email      :string
+#  token      :string
+#  tenant_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Payment < ApplicationRecord
   belongs_to :tenant
   attr_accessor :card_number, :card_cvv, :card_expires_month, :card_expires_year

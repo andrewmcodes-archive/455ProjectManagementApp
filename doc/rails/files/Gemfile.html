@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Gemfile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            Gemfile
+        </h1>
+        <ul class="files">
+            <li>Gemfile</li>
+            <li>Last modified: 2018-03-03 05:29:17 -0500</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>source &#39;<a href="https://rubygems.org">rubygems.org</a>&#39;</p>
+
+<p>ruby &#39;2.4.1&#39;</p>
+
+<p>git_source(:github) do |repo_name|</p>
+
+<pre><code>repo_name = &quot;#{repo_name}/#{repo_name}&quot; unless repo_name.include?(&#39;/&#39;)
+&quot;https://github.com/#{repo_name}.git&quot;
+</code></pre>
+
+<p>end</p>
+
+<p># Full-stack web application framework. (<a
+href="http://rubyonrails.org">rubyonrails.org</a>) gem &#39;rails&#39;,
+&#39;~&gt; 5.1.4&#39; # Pg is the Ruby interface to the <a
+href="http://www.postgresql.org/">PostgreSQL RDBMS</a> (<a
+href="https://bitbucket.org/ged/ruby-pg">bitbucket.org/ged/ruby-pg</a>) gem
+&#39;pg&#39;, &#39;~&gt; 0.18&#39; # Flexible authentication solution for
+Rails with Warden (<a
+href="https://github.com/plataformatec/devise">github.com/plataformatec/devise</a>)
+gem &#39;devise&#39;, &#39;~&gt; 4.2&#39; # Puma is a simple, fast,
+threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
+(<a href="http://puma.io">puma.io</a>) gem &#39;puma&#39;, &#39;~&gt;
+3.7&#39; # Sass adapter for the Rails asset pipeline. (<a
+href="https://github.com/rails/sass-rails">github.com/rails/sass-rails</a>)
+gem &#39;sass-rails&#39;, &#39;~&gt; 5.0&#39; # Ruby wrapper for UglifyJS
+JavaScript compressor (<a
+href="http://github.com/lautis/uglifier">github.com/lautis/uglifier</a>)
+gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39; # Embed the V8 JavaScript
+interpreter into Ruby (<a
+href="http://github.com/cowboyd/therubyracer">github.com/cowboyd/therubyracer</a>)
+gem &#39;therubyracer&#39;, platforms: :ruby # CoffeeScript adapter for the
+Rails asset pipeline. (<a
+href="https://github.com/rails/coffee-rails">github.com/rails/coffee-rails</a>)
+gem &#39;coffee-rails&#39;, &#39;~&gt; 4.2&#39; # Bootstrap CSS toolkit for
+Rails 4, 3.x Asset Pipeline (<a
+href="https://github.com/seyhunak/twitter-bootstrap-rails">github.com/seyhunak/twitter-bootstrap-rails</a>)
+gem &#39;twitter-bootstrap-rails&#39; # rdoc html with javascript search
+index. (<a href="https://github.com/zzak/sdoc">github.com/zzak/sdoc</a>)
+gem &#39;sdoc&#39;, &#39;~&gt; 0.4.0&#39;, group: :doc # An elegant,
+structured (X)HTML/XML templating engine. (<a
+href="http://haml.info">haml.info</a>/) gem &#39;haml&#39; # Devise
+Bootstrap views with i18n support. gem &#39;devise-bootstrap-views&#39; # A
+date picker for Twitter Bootstrap (<a
+href="https://github.com/Nerian/bootstrap-datepicker-rails">github.com/Nerian/bootstrap-datepicker-rails</a>)
+gem &#39;bootstrap-datepicker-rails&#39; # Easy multi-tenanting for Rails +
+Devise (<a
+href="https://github.com/jekuno/milia">github.com/jekuno/milia</a>) gem
+&#39;milia&#39;, github: &#39;jekuno/milia&#39;, branch: &#39;issue#76&#39;
+# AWS SDK for Ruby (<a
+href="http://github.com/aws/aws-sdk-ruby">github.com/aws/aws-sdk-ruby</a>)
+gem &#39;aws-sdk&#39; # Ruby bindings for the Stripe API (<a
+href="https://stripe.com/docs/api/ruby">stripe.com/docs/api/ruby</a>) gem
+&#39;stripe&#39; # Create JSON structures via a Builder-style DSL (<a
+href="https://github.com/rails/jbuilder">github.com/rails/jbuilder</a>) gem
+&#39;jbuilder&#39;, &#39;~&gt; 2.5&#39; # Use jQuery with Rails 4+ (<a
+href="https://github.com/rails/jquery-rails">github.com/rails/jquery-rails</a>)
+gem &#39;jquery-rails&#39; # an asset gemification of the font-awesome icon
+font library (<a
+href="https://github.com/bokmann/font-awesome-rails">github.com/bokmann/font-awesome-rails</a>)
+gem &#39;font-awesome-rails&#39; # Log parser to identify actions which
+significantly increase VM heap size (<a
+href="http://github.com/noahd1/oink">github.com/noahd1/oink</a>) gem
+&#39;oink&#39; # Simple Rails app configuration (<a
+href="https://github.com/laserlemon/figaro">github.com/laserlemon/figaro</a>)
+gem &#39;figaro&#39; # Entity-relationship diagram for your Rails models.
+(<a
+href="https://github.com/voormedia/rails-erd">github.com/voormedia/rails-erd</a>)
+gem &#39;rails-erd&#39; group :development, :test do</p>
+
+<pre><code># Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
+gem &#39;byebug&#39;, platforms: %i[mri mingw x64_mingw]
+# Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
+gem &#39;capybara&#39;, &#39;~&gt; 2.13&#39;
+# The next generation developer focused tool for automated testing of webapps (https://github.com/seleniumhq/selenium)
+gem &#39;selenium-webdriver&#39;
+</code></pre>
+
+<p>end</p>
+
+<p>group :development do</p>
+
+<pre><code># Automatic Ruby code style checking tool. (https://github.com/bbatsov/rubocop)
+gem &#39;rubocop&#39;
+# Annotates Rails Models, routes, fixtures, and others based on the database schema. (http://github.com/ctran/annotate_models)
+gem &#39;annotate&#39;
+# help to kill N+1 queries and unused eager loading. (https://github.com/flyerhzm/bullet)
+gem &#39;bullet&#39;
+# Listen to file modifications (https://github.com/guard/listen)
+gem &#39;listen&#39;, &#39;&gt;= 3.0.5&#39;, &#39;&lt; 3.2&#39;
+# A debugging tool for your Ruby on Rails applications. (https://github.com/rails/web-console)
+gem &#39;web-console&#39;, &#39;&gt;= 3.3.0&#39;
+# Rails application preloader (https://github.com/rails/spring)
+gem &#39;spring&#39;
+# Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
+gem &#39;spring-watcher-listen&#39;, &#39;~&gt; 2.0.0&#39;
+</code></pre>
+
+<p>end</p>
+
+<p>group :production do</p>
+
+<p>end # Timezone Data for TZInfo (<a
+href="http://tzinfo.github.io">tzinfo.github.io</a>) gem
+&#39;tzinfo-data&#39;, platforms: %i[mingw mswin x64_mingw jruby]</p>
+
+<p># An Action Dispatch session store backed by an Active Record class. (<a
+href="https://github.com/rails/activerecord-session_store">github.com/rails/activerecord-session_store</a>)
+gem &#39;activerecord-session_store&#39;, github:
+&#39;rails/activerecord-session_store&#39;</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

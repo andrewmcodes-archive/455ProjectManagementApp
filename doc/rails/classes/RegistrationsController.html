@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RegistrationsController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RegistrationsController
+            
+                <span class="parent">&lt;
+                    
+                    Milia::RegistrationsController
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/registrations_controller_rb.html">app/controllers/registrations_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-after_inactive_sign_up_path_for">after_inactive_sign_up_path_for</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-after_sign_up_path_for">after_sign_up_path_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create">create</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-devise_create">devise_create</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-log_action">log_action</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-sign_out_session-21">sign_out_session!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-sign_up_params_coupon">sign_up_params_coupon</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-sign_up_params_tenant">sign_up_params_tenant</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-sign_up_params_user">sign_up_params_user</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-create">
+            
+              <b>create</b>()
+            
+            <a href="../classes/RegistrationsController.html#method-i-create" name="method-i-create" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+<hr>
+
+<p>TODO: options if non-standard path for new signups view</p>
+<hr>
+
+<p>create – intercept the POST create action upon new sign-up new tenant
+account is vetted, then created, then proceed with devise create user
+CALLBACK: <a
+href="Tenant.html#method-c-create_new_tenant">Tenant.create_new_tenant</a> 
+– prior to completing user account CALLBACK: <a
+href="Tenant.html#method-c-tenant_signup">Tenant.tenant_signup</a>      –
+after completing user account</p>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-create_source')" id="l_method-i-create_source">show</a>
+                
+              </p>
+              <div id="method-i-create_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create</span>
+  <span class="ruby-comment"># have a working copy of the params in case Tenant callbacks</span>
+  <span class="ruby-comment"># make any changes</span>
+  <span class="ruby-identifier">tenant_params</span> = <span class="ruby-identifier">sign_up_params_tenant</span>
+  <span class="ruby-identifier">user_params</span>   = <span class="ruby-identifier">sign_up_params_user</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-identifier">is_admin</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>})
+  <span class="ruby-identifier">coupon_params</span> = <span class="ruby-identifier">sign_up_params_coupon</span>
+
+  <span class="ruby-identifier">sign_out_session!</span>
+  <span class="ruby-comment"># next two lines prep signup view parameters</span>
+  <span class="ruby-identifier">prep_signup_view</span>( <span class="ruby-identifier">tenant_params</span>, <span class="ruby-identifier">user_params</span>, <span class="ruby-identifier">coupon_params</span> )
+
+  <span class="ruby-comment"># validate recaptcha first unless not enabled</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-operator">::</span><span class="ruby-constant">Milia</span>.<span class="ruby-identifier">use_recaptcha</span>  <span class="ruby-operator">||</span>  <span class="ruby-identifier">verify_recaptcha</span>
+
+    <span class="ruby-constant">Tenant</span>.<span class="ruby-identifier">transaction</span>  <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@tenant</span> = <span class="ruby-constant">Tenant</span>.<span class="ruby-identifier">create_new_tenant</span>( <span class="ruby-identifier">tenant_params</span>, <span class="ruby-identifier">user_params</span>, <span class="ruby-identifier">coupon_params</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tenant</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">empty?</span>   <span class="ruby-comment"># tenant created</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tenant</span>.<span class="ruby-identifier">plan</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;premium&#39;</span>
+          <span class="ruby-ivar">@payment</span> = <span class="ruby-constant">Payment</span>.<span class="ruby-identifier">new</span>({ <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_params</span>[<span class="ruby-string">&quot;email&quot;</span>],
+                                   <span class="ruby-identifier">token</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:payment</span>][<span class="ruby-string">&quot;token&quot;</span>],
+                                   <span class="ruby-identifier">tenant</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@tenant</span> })
+          <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Please check registration errors&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">valid?</span>
+
+          <span class="ruby-keyword">begin</span>
+            <span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">process_payment</span>
+            <span class="ruby-ivar">@payment</span>.<span class="ruby-identifier">save</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+            <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+            <span class="ruby-ivar">@tenant</span>.<span class="ruby-identifier">destroy</span>
+            <span class="ruby-identifier">log_action</span>(<span class="ruby-string">&quot;Payment failed&quot;</span>)
+            <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">valid?</span>
+        <span class="ruby-identifier">log_action</span>( <span class="ruby-string">&quot;tenant create failed&quot;</span>, <span class="ruby-ivar">@tenant</span> )
+        <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+      <span class="ruby-keyword">end</span> <span class="ruby-comment"># if .. then .. else no tenant errors</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>].<span class="ruby-identifier">empty?</span> <span class="ruby-comment">#payment successful</span>
+        <span class="ruby-identifier">initiate_tenant</span>( <span class="ruby-ivar">@tenant</span> )    <span class="ruby-comment"># first time stuff for new tenant</span>
+
+        <span class="ruby-identifier">devise_create</span>( <span class="ruby-identifier">user_params</span> )   <span class="ruby-comment"># devise resource(user) creation; sets resource</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">empty?</span>   <span class="ruby-comment">#  SUCCESS!</span>
+
+          <span class="ruby-identifier">log_action</span>( <span class="ruby-string">&quot;signup user/tenant success&quot;</span>, <span class="ruby-identifier">resource</span> )
+          <span class="ruby-comment"># do any needed tenant initial setup</span>
+          <span class="ruby-constant">Tenant</span>.<span class="ruby-identifier">tenant_signup</span>(<span class="ruby-identifier">resource</span>, <span class="ruby-ivar">@tenant</span>, <span class="ruby-identifier">coupon_params</span>)
+
+        <span class="ruby-keyword">else</span>  <span class="ruby-comment"># user creation failed; force tenant rollback</span>
+          <span class="ruby-identifier">log_action</span>( <span class="ruby-string">&quot;signup user create failed&quot;</span>, <span class="ruby-identifier">resource</span> )
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Rollback</span>   <span class="ruby-comment"># force the tenant transaction to be rolled back</span>
+        <span class="ruby-keyword">end</span>  <span class="ruby-comment"># if..then..else for valid user creation</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">valid?</span>
+        <span class="ruby-identifier">log_action</span>(<span class="ruby-string">&quot;Payment processing failed&quot;</span>, <span class="ruby-ivar">@tenant</span> )
+      <span class="ruby-keyword">end</span> <span class="ruby-comment"># if.. then .. else no tenant errors</span>
+    <span class="ruby-keyword">end</span>  <span class="ruby-comment">#  wrap tenant/user creation in a transaction</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Recaptcha codes didn&#39;t match; please try again&quot;</span>
+    <span class="ruby-comment"># all validation errors are passed when the sign_up form is re-rendered</span>
+    <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-ivar">@tenant</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-identifier">log_action</span>( <span class="ruby-string">&quot;recaptcha failed&quot;</span>, <span class="ruby-identifier">resource</span> )
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-after_inactive_sign_up_path_for">
+            
+              <b>after_inactive_sign_up_path_for</b>(_resource)
+            
+            <a href="../classes/RegistrationsController.html#method-i-after_inactive_sign_up_path_for" name="method-i-after_inactive_sign_up_path_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-after_inactive_sign_up_path_for_source')" id="l_method-i-after_inactive_sign_up_path_for_source">show</a>
+                
+              </p>
+              <div id="method-i-after_inactive_sign_up_path_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">after_inactive_sign_up_path_for</span>(<span class="ruby-identifier">_resource</span>)
+  <span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;refresh&#39;</span>] = <span class="ruby-node">&quot;0;url=#{root_path}&quot;</span>
+  <span class="ruby-identifier">root_path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-after_sign_up_path_for">
+            
+              <b>after_sign_up_path_for</b>(_resource)
+            
+            <a href="../classes/RegistrationsController.html#method-i-after_sign_up_path_for" name="method-i-after_sign_up_path_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-after_sign_up_path_for_source')" id="l_method-i-after_sign_up_path_for_source">show</a>
+                
+              </p>
+              <div id="method-i-after_sign_up_path_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">after_sign_up_path_for</span>(<span class="ruby-identifier">_resource</span>)
+  <span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;refresh&#39;</span>] = <span class="ruby-node">&quot;0;url=#{root_path}&quot;</span>
+  <span class="ruby-identifier">root_path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-devise_create">
+            
+              <b>devise_create</b>(user_params)
+            
+            <a href="../classes/RegistrationsController.html#method-i-devise_create" name="method-i-devise_create" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+
+<p><a
+href="RegistrationsController.html#method-i-devise_create">#devise_create</a>
+– duplicate of Devise::RegistrationsController same as in devise gem EXCEPT
+need to prep signup form variables</p>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-devise_create_source')" id="l_method-i-devise_create_source">show</a>
+                
+              </p>
+              <div id="method-i-devise_create_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">devise_create</span>(<span class="ruby-identifier">user_params</span>)
+  <span class="ruby-identifier">build_resource</span>(<span class="ruby-identifier">user_params</span>)
+
+  <span class="ruby-comment"># if we&#39;re using milia&#39;s invite_member helpers</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">Milia</span>.<span class="ruby-identifier">use_invite_member</span>
+    <span class="ruby-comment"># then flag for our confirmable that we won&#39;t need to set up a password</span>
+    <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">skip_confirm_change_password</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">resource</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">log_action</span>(<span class="ruby-string">&#39;devise: signup user success&#39;</span>, <span class="ruby-identifier">resource</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">persisted?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">active_for_authentication?</span>
+      <span class="ruby-identifier">set_flash_message!</span> <span class="ruby-value">:notice</span>, <span class="ruby-value">:signed_up</span>
+      <span class="ruby-identifier">sign_up</span>(<span class="ruby-identifier">resource_name</span>, <span class="ruby-identifier">resource</span>)
+      <span class="ruby-identifier">respond_with</span> <span class="ruby-identifier">resource</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">after_sign_up_path_for</span>(<span class="ruby-identifier">resource</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">set_flash_message!</span> <span class="ruby-value">:notice</span>, <span class="ruby-value">:&quot;signed_up_but_#{resource.inactive_message}&quot;</span>
+      <span class="ruby-identifier">expire_data_after_sign_in!</span>
+      <span class="ruby-identifier">respond_with</span> <span class="ruby-identifier">resource</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-identifier">after_inactive_sign_up_path_for</span>(<span class="ruby-identifier">resource</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># re-show signup view</span>
+    <span class="ruby-identifier">clean_up_passwords</span> <span class="ruby-identifier">resource</span>
+    <span class="ruby-identifier">log_action</span>(<span class="ruby-string">&#39;devise: signup user failure&#39;</span>, <span class="ruby-identifier">resource</span>)
+    <span class="ruby-identifier">set_minimum_password_length</span>
+    <span class="ruby-identifier">prep_signup_view</span>(<span class="ruby-ivar">@tenant</span>, <span class="ruby-identifier">resource</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:coupon</span>])
+    <span class="ruby-identifier">respond_with</span> <span class="ruby-identifier">resource</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-log_action">
+            
+              <b>log_action</b>(action, resource = nil)
+            
+            <a href="../classes/RegistrationsController.html#method-i-log_action" name="method-i-log_action" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-log_action_source')" id="l_method-i-log_action_source">show</a>
+                
+              </p>
+              <div id="method-i-log_action_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">log_action</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">resource</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">err_msg</span> = (<span class="ruby-identifier">resource</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">full_messages</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>))
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(
+      <span class="ruby-node">&quot;MILIA &gt;&gt;&gt;&gt;&gt; [register user/org] #{action} - #{err_msg}&quot;</span>
+    )
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sign_out_session-21">
+            
+              <b>sign_out_session!</b>()
+            
+            <a href="../classes/RegistrationsController.html#method-i-sign_out_session-21" name="method-i-sign_out_session-21" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+
+<p>sign_out_session! – force the devise session signout</p>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-sign_out_session-21_source')" id="l_method-i-sign_out_session-21_source">show</a>
+                
+              </p>
+              <div id="method-i-sign_out_session-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sign_out_session!</span>
+  <span class="ruby-constant">Devise</span>.<span class="ruby-identifier">sign_out_all_scopes</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">sign_out</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">sign_out</span>(<span class="ruby-identifier">resource_name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_signed_in?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sign_up_params_coupon">
+            
+              <b>sign_up_params_coupon</b>()
+            
+            <a href="../classes/RegistrationsController.html#method-i-sign_up_params_coupon" name="method-i-sign_up_params_coupon" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+
+<p><a
+href="RegistrationsController.html#method-i-sign_up_params_coupon">#sign_up_params_coupon</a>
+– permit coupon parameter if used; else params</p>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-sign_up_params_coupon_source')" id="l_method-i-sign_up_params_coupon_source">show</a>
+                
+              </p>
+              <div id="method-i-sign_up_params_coupon_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sign_up_params_coupon</span>
+  (<span class="ruby-operator">::</span><span class="ruby-constant">Milia</span>.<span class="ruby-identifier">use_coupon</span> <span class="ruby-operator">?</span>
+        <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:coupon</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Milia</span>.<span class="ruby-identifier">whitelist_coupon_params</span>) <span class="ruby-operator">:</span>
+        <span class="ruby-identifier">params</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sign_up_params_tenant">
+            
+              <b>sign_up_params_tenant</b>()
+            
+            <a href="../classes/RegistrationsController.html#method-i-sign_up_params_tenant" name="method-i-sign_up_params_tenant" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-sign_up_params_tenant_source')" id="l_method-i-sign_up_params_tenant_source">show</a>
+                
+              </p>
+              <div id="method-i-sign_up_params_tenant_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sign_up_params_tenant</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:tenant</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Milia</span>.<span class="ruby-identifier">whitelist_tenant_params</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sign_up_params_user">
+            
+              <b>sign_up_params_user</b>()
+            
+            <a href="../classes/RegistrationsController.html#method-i-sign_up_params_user" name="method-i-sign_up_params_user" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <hr>
+<hr>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-sign_up_params_user_source')" id="l_method-i-sign_up_params_user_source">show</a>
+                
+              </p>
+              <div id="method-i-sign_up_params_user_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/registrations_controller.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sign_up_params_user</span>
+  <span class="ruby-identifier">devise_parameter_sanitizer</span>.<span class="ruby-identifier">sanitize</span>(<span class="ruby-value">:sign_up</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>

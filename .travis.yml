@@ -13,7 +13,6 @@ script:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database crdcprojectmanagement_test;' -U postgres
-  - gem install bundler
 
 deploy:
   provider: heroku

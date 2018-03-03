@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: artifacts
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  key        :string
+#  project_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Artifact < ApplicationRecord
   before_save :upload_to_s3
   attr_accessor :upload

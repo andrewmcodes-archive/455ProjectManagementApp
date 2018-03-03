@@ -13,7 +13,6 @@ gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
 gem 'devise', '~> 4.2'
-
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '~> 3.7'
 # Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
@@ -24,19 +23,16 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 # CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
 gem 'coffee-rails', '~> 4.2'
-gem 'twitter-bootstrap-rails'
-# Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
-# gem 'turbolinks', '~> 5'
-# gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap CSS toolkit for Rails 4, 3.x Asset Pipeline (https://github.com/seyhunak/twitter-bootstrap-rails)
-# gem 'twitter-bootstrap-rails'
-# Devise Bootstrap views with i18n support.
-# gem 'bootstrap', '~> 4.0.0'
+gem 'twitter-bootstrap-rails'
+# rdoc html with javascript search index. (https://github.com/zzak/sdoc)
+gem 'sdoc', '~> 0.4.0', group: :doc
+# An elegant, structured (X)HTML/XML templating engine. (http://haml.info/)
 gem 'haml'
+# Devise Bootstrap views with i18n support.
 gem 'devise-bootstrap-views'
-# gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
+# A date picker for Twitter Bootstrap (https://github.com/Nerian/bootstrap-datepicker-rails)
 gem 'bootstrap-datepicker-rails'
-# gem 'webpack-rails'
 # Easy multi-tenanting for Rails + Devise (https://github.com/jekuno/milia)
 gem 'milia', github: 'jekuno/milia', branch: 'issue#76'
 # AWS SDK for Ruby (http://github.com/aws/aws-sdk-ruby)
@@ -53,6 +49,7 @@ gem 'font-awesome-rails'
 gem 'oink'
 # Simple Rails app configuration (https://github.com/laserlemon/figaro)
 gem 'figaro'
+# Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
 gem 'rails-erd'
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
@@ -68,7 +65,7 @@ group :development do
   gem 'rubocop'
   # Annotates Rails Models, routes, fixtures, and others based on the database schema. (http://github.com/ctran/annotate_models)
   gem 'annotate'
-  # help to kill N+1 queries and unused eager loading. (http://github.com/flyerhzm/bullet)
+  # help to kill N+1 queries and unused eager loading. (https://github.com/flyerhzm/bullet)
   gem 'bullet'
   # Listen to file modifications (https://github.com/guard/listen)
   gem 'listen', '>= 3.0.5', '< 3.2'
