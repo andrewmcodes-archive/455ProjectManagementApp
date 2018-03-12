@@ -20,3 +20,4 @@
 .idea
 .vscode
 /config/application.yml
+/config/secrets.yml
