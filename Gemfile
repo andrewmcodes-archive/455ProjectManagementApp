@@ -75,6 +75,8 @@ group :development do
   gem 'spring'
   # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'brakeman', :require => false
+
 end
 
 group :production do

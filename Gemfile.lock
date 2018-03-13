@@ -604,6 +604,7 @@ GEM
     bindex (0.5.0)
     bootstrap-datepicker-rails (1.7.1.1)
       railties (>= 3.0)
+    brakeman (4.2.0)
     builder (3.2.3)
     bullet (5.7.3)
       activesupport (>= 3.0.0)
@@ -821,6 +822,7 @@ DEPENDENCIES
   annotate
   aws-sdk
   bootstrap-datepicker-rails
+  brakeman
   bullet
   byebug
   capybara (~> 2.13)
