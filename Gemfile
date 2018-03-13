@@ -45,12 +45,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 # an asset gemification of the font-awesome icon font library (https://github.com/bokmann/font-awesome-rails)
 gem 'font-awesome-rails'
-# Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
-gem 'oink'
 # Simple Rails app configuration (https://github.com/laserlemon/figaro)
 gem 'figaro'
-# Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
-gem 'rails-erd'
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -77,7 +73,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Security vulnerability scanner for Ruby on Rails. (http://brakemanscanner.org)
   gem 'brakeman', :require => false
-
+  # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
+  gem 'oink'
+  # Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
+  gem 'rails-erd'
 end
 
 group :production do
