@@ -25,7 +25,6 @@ module CRDCSaasApp
     # -- all .rb files in that directory are automatically loaded.
     Raven.configure do |config|
       config.dsn = ENV['SENTRY_DSN']
-      config.attr = 'value'
     end
   end
 end
