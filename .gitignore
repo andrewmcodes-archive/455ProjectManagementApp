@@ -19,5 +19,3 @@
 .byebug_history
 .idea
 .vscode
-/config/application.yml
-/config/secrets.yml
