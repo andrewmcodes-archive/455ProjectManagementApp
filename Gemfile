@@ -79,6 +79,8 @@ group :development do
   gem 'brakeman', :require => false
   # Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
   gem 'rails-erd'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :production do
