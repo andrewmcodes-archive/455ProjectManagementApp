@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -47,7 +49,7 @@ gem 'font-awesome-rails'
 gem 'figaro'
 # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
 gem 'oink'
-gem "sentry-raven"
+gem 'sentry-raven'
 
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
@@ -74,15 +76,14 @@ group :development do
   # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Security vulnerability scanner for Ruby on Rails. (http://brakemanscanner.org)
-  gem 'brakeman', :require => false
+  gem 'brakeman', require: false
   # Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'rails-erd'
-  gem "better_errors"
-  gem "binding_of_caller"
 end
 
 group :production do
-
 end
 # Timezone Data for TZInfo (http://tzinfo.github.io)
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

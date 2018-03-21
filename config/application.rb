@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -8,7 +10,6 @@ Bundler.require(*Rails.groups)
 
 module CRDCSaasApp
   class Application < Rails::Application
-     
     # uncomment to ensure a common layout for devise forms
     #   config.to_prepare do   # Devise
     #     Devise::SessionsController.layout "sign"

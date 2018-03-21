@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Route Map
 #
 #                   Prefix Verb      URI Pattern                                         Controller#Action
@@ -66,7 +68,7 @@
 #                          POST      /users/confirmation(.:format)                       confirmations#create
 #                edit_plan GET       /plan/edit(.:format)                                tenants#edit
 #              update_plan PUT|PATCH /plan/update(.:format)                              tenants#update
-# 
+#
 
 Rails.application.routes.draw do
   resources :user_projects
@@ -95,7 +97,5 @@ Rails.application.routes.draw do
   }
 
   match '/plan/edit' => 'tenants#edit', via: :get, as: :edit_plan
-  match '/plan/update' => 'tenants#update', via: [:put, :patch], as: :update_plan
-
+  match '/plan/update' => 'tenants#update', via: %i[put patch], as: :update_plan
 end
-

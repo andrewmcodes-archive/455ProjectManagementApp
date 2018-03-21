@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: artifacts
@@ -27,7 +29,7 @@ class Artifact < ApplicationRecord
     s3 = Aws::S3::Resource.new
     tenant_name = Tenant.find(Thread.current[:tenant_id]).name
     obj = s3.bucket(ENV['S3_BUCKET']).object("#{tenant_name}/#{upload.original_filename}")
-    obj.upload_file(upload.path, acl:'public-read')
+    obj.upload_file(upload.path, acl: 'public-read')
     self.key = obj.public_url
   end
 

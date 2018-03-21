@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
-  skip_before_action :authenticate_tenant!, :only => [ :index ]
+  skip_before_action :authenticate_tenant!, only: [:index]
 
   def index
     if current_user

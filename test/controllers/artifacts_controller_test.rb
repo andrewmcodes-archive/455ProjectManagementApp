@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ArtifactsControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class ArtifactsControllerTest < ActionDispatch::IntegrationTest
     @artifact = artifacts(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get artifacts_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_artifact_url
     assert_response :success
   end
 
-  test "should create artifact" do
+  test 'should create artifact' do
     assert_difference('Artifact.count') do
       post artifacts_url, params: { artifact: { key: @artifact.key, name: @artifact.name, project_id: @artifact.project_id } }
     end
@@ -23,22 +25,22 @@ class ArtifactsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to artifact_url(Artifact.last)
   end
 
-  test "should show artifact" do
+  test 'should show artifact' do
     get artifact_url(@artifact)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_artifact_url(@artifact)
     assert_response :success
   end
 
-  test "should update artifact" do
+  test 'should update artifact' do
     patch artifact_url(@artifact), params: { artifact: { key: @artifact.key, name: @artifact.name, project_id: @artifact.project_id } }
     assert_redirected_to artifact_url(@artifact)
   end
 
-  test "should destroy artifact" do
+  test 'should destroy artifact' do
     assert_difference('Artifact.count', -1) do
       delete artifact_url(@artifact)
     end
