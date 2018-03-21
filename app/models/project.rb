@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: projects
@@ -42,4 +44,3 @@ class Project < ApplicationRecord
     end
   end
 end
-

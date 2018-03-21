@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: payments
@@ -15,11 +17,11 @@ class Payment < ApplicationRecord
   attr_accessor :card_number, :card_cvv, :card_expires_month, :card_expires_year
 
   def self.month_options
-    Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }
+    Date::MONTHNAMES.compact.each_with_index.map { |name, i| ["#{i + 1} - #{name}", i + 1] }
   end
 
   def self.year_options
-    (Date.today.year..(Date.today.year+10)).to_a
+    (Date.today.year..(Date.today.year + 10)).to_a
   end
 
   def process_payment
@@ -29,6 +31,5 @@ class Payment < ApplicationRecord
                           amount: 1000,
                           description: 'Premium',
                           currency: 'usd'
-
   end
 end

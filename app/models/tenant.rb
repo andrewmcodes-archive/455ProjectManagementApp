@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tenants
@@ -22,7 +24,7 @@ class Tenant < ApplicationRecord
   def can_create_projects?
     (plan == 'free' && projects.count < 1) || (plan == 'premium')
   end
-  
+
   def self.create_new_tenant(tenant_params, _user_params, coupon_params)
     # tenant = Tenant.new(name: tenant_params[:name])
     tenant = Tenant.new(tenant_params)
@@ -60,6 +62,5 @@ class Tenant < ApplicationRecord
     # any special seeding required for a new organizational tenant
     #
     Member.create_org_admin(user)
-    #
   end
 end

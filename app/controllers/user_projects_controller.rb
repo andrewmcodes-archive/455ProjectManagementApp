@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UserProjectsController < ApplicationController
-  before_action :set_user_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_project, only: %i[show edit update destroy]
 
   # GET /user_projects
   # GET /user_projects.json
@@ -9,8 +11,7 @@ class UserProjectsController < ApplicationController
 
   # GET /user_projects/1
   # GET /user_projects/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_projects/new
   def new
@@ -18,8 +19,7 @@ class UserProjectsController < ApplicationController
   end
 
   # GET /user_projects/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_projects
   # POST /user_projects.json
@@ -56,21 +56,24 @@ class UserProjectsController < ApplicationController
   def destroy
     @user_project.destroy
     respond_to do |format|
-      format.html { redirect_to users_tenant_project_url(id: @user_project.project_id,
-                                                         tenant_id: @user_project.project.tenant_id),
-                                notice: 'User was successfully removed from the project' }
+      format.html do
+        redirect_to users_tenant_project_url(id: @user_project.project_id,
+                                             tenant_id: @user_project.project.tenant_id),
+                    notice: 'User was successfully removed from the project'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_project
-      @user_project = UserProject.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_project_params
-      params.require(:user_project).permit(:project_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_project
+    @user_project = UserProject.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_project_params
+    params.require(:user_project).permit(:project_id, :user_id)
+  end
 end

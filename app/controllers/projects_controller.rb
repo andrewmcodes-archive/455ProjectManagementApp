@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :users, :add_user]
-  before_action :set_tenant, only: [:show, :edit, :update, :destroy, :new, :create, :users, :add_user]
+  before_action :set_project, only: %i[show edit update destroy users add_user]
+  before_action :set_tenant, only: %i[show edit update destroy new create users add_user]
   before_action :verify_tenant
 
   # GET /projects
@@ -11,8 +13,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   # GET /projects/1.json
-  def show
-  end
+  def show; end
 
   # GET /projects/new
   def new
@@ -20,8 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /projects
   # POST /projects.json
@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
   end
 
   def users
-    @project_users = (@project.users + (User.where(tenant_id: @tenant.id, is_admin: true))) - [current_user]
+    @project_users = (@project.users + User.where(tenant_id: @tenant.id, is_admin: true)) - [current_user]
     @other_users = @tenant.users.where(is_admin: false) - (@project_users + [current_user])
   end
 
@@ -69,16 +69,21 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project_user.save
-        format.html { redirect_to users_tenant_project_url(id: @project.id, tenant_id: @project.tenant_id),
-                                  notice: "User was successfully added to project" }
+        format.html do
+          redirect_to users_tenant_project_url(id: @project.id, tenant_id: @project.tenant_id),
+                      notice: 'User was successfully added to project'
+        end
       else
-        format.html { redirect_to users_tenant_project_url(id: @project.id, tenant_id: @project.tenant_id),
-                                  error: "User was not added to project" }
+        format.html do
+          redirect_to users_tenant_project_url(id: @project.id, tenant_id: @project.tenant_id),
+                      error: 'User was not added to project'
+        end
       end
     end
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = Project.find(params[:id])
@@ -96,7 +101,7 @@ class ProjectsController < ApplicationController
   def verify_tenant
     unless params[:tenant_id] == Tenant.current_tenant_id.to_s
       redirect_to :root,
-                  flash: { error: 'You are not authorized to access any organization other than your own'}
+                  flash: { error: 'You are not authorized to access any organization other than your own' }
     end
   end
 end

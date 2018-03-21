@@ -1,6 +1,8 @@
 
+# frozen_string_literal: true
+
 class ArtifactsController < ApplicationController
-  before_action :set_artifact, only: [:show, :edit, :update, :destroy]
+  before_action :set_artifact, only: %i[show edit update destroy]
 
   # GET /artifacts
   # GET /artifacts.json
@@ -10,8 +12,7 @@ class ArtifactsController < ApplicationController
 
   # GET /artifacts/1
   # GET /artifacts/1.json
-  def show
-  end
+  def show; end
 
   # GET /artifacts/new
   def new
@@ -20,8 +21,7 @@ class ArtifactsController < ApplicationController
   end
 
   # GET /artifacts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /artifacts
   # POST /artifacts.json
@@ -30,8 +30,10 @@ class ArtifactsController < ApplicationController
 
     respond_to do |format|
       if @artifact.save
-        format.html { redirect_to tenant_project_url(tenant_id: Tenant.current_tenant_id,
-                                                     id: @artifact.project_id), notice: 'Artifact was successfully created.' }
+        format.html do
+          redirect_to tenant_project_url(tenant_id: Tenant.current_tenant_id,
+                                         id: @artifact.project_id), notice: 'Artifact was successfully created.'
+        end
         format.json { render :show, status: :created, location: @artifact }
       else
         format.html { render :new }
@@ -65,6 +67,7 @@ class ArtifactsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_artifact
     @artifact = Artifact.find(params[:id])
