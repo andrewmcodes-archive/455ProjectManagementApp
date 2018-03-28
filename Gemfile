@@ -50,6 +50,8 @@ gem 'figaro'
 # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
 gem 'oink'
 gem 'sentry-raven'
+gem 'webpacker', '~> 3.4'
+
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
