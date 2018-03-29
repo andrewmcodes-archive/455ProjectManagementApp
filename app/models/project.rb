@@ -22,9 +22,7 @@ class Project < ApplicationRecord
   validate :free_plan_can_only_have_one_project
 
   def free_plan_can_only_have_one_project
-    if new_record? && (tenant.projects.count > 0) && (tenant.plan == 'free')
-      errors.add(:base, 'Free plans cannot have more than one project')
-    end
+    errors.add(:base, 'Free plans cannot have more than one project') if new_record? && (tenant.projects.count > 0) && (tenant.plan == 'free')
   end
 
   def self.by_user_plan_and_tenant(tenant_id, user)
