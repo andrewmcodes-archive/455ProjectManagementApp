@@ -5,6 +5,3 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'test/dummy/db/schema.rb'
-
-Metrics/LineLength:
-  Max: 120
