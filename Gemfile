@@ -47,6 +47,8 @@ gem 'font-awesome-rails'
 gem 'figaro'
 # A gem that provides a client interface for the Sentry error logger (https://github.com/getsentry/raven-ruby)
 gem 'sentry-raven'
+# Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
+gem 'oink'
 
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
@@ -60,8 +62,6 @@ end
 group :development do
   # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
   gem 'bootsnap', require: false
-  # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
-  gem 'oink'
   # Automatic Ruby code style checking tool. (https://github.com/bbatsov/rubocop)
   gem 'rubocop'
   # Annotates Rails Models, routes, fixtures, and others based on the database schema. (http://github.com/ctran/annotate_models)
