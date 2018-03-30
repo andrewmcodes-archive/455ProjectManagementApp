@@ -629,13 +629,6 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
     coderay (1.1.2)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     commonjs (0.2.7)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
@@ -860,7 +853,6 @@ DEPENDENCIES
   bullet
   byebug
   capybara (~> 2.13)
-  coffee-rails (~> 4.2)
   devise (~> 4.2)
   devise-bootstrap-views
   figaro

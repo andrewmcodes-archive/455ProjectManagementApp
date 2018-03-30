@@ -21,8 +21,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Embed the V8 JavaScript interpreter into Ruby (http://github.com/cowboyd/therubyracer)
 gem 'therubyracer', platforms: :ruby
-# CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
-gem 'coffee-rails', '~> 4.2'
 # Bootstrap CSS toolkit for Rails 4, 3.x Asset Pipeline (https://github.com/seyhunak/twitter-bootstrap-rails)
 gem 'twitter-bootstrap-rails'
 # rdoc html with javascript search index. (https://github.com/zzak/sdoc)
@@ -47,12 +45,8 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 # Simple Rails app configuration (https://github.com/laserlemon/figaro)
 gem 'figaro'
-# Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
-gem 'oink'
 # A gem that provides a client interface for the Sentry error logger (https://github.com/getsentry/raven-ruby)
 gem 'sentry-raven'
-# Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
-gem 'bootsnap', require: false
 
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
@@ -64,6 +58,10 @@ group :development, :test do
 end
 
 group :development do
+  # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
+  gem 'bootsnap', require: false
+  # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
+  gem 'oink'
   # Automatic Ruby code style checking tool. (https://github.com/bbatsov/rubocop)
   gem 'rubocop'
   # Annotates Rails Models, routes, fixtures, and others based on the database schema. (http://github.com/ctran/annotate_models)
@@ -92,8 +90,6 @@ group :development do
   gem "haml-rails", "~> 1.0"
 end
 
-group :production do
-end
 # Timezone Data for TZInfo (http://tzinfo.github.io)
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
