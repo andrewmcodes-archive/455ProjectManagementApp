@@ -49,8 +49,10 @@ gem 'font-awesome-rails'
 gem 'figaro'
 # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
 gem 'oink'
+# A gem that provides a client interface for the Sentry error logger (https://github.com/getsentry/raven-ruby)
 gem 'sentry-raven'
-gem 'webpacker', '~> 3.4'
+# Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
+gem 'bootsnap', require: false
 
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
@@ -79,8 +81,11 @@ group :development do
   # Security vulnerability scanner for Ruby on Rails. (http://brakemanscanner.org)
   gem 'brakeman', require: false
   # Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
+  # Better error page for Rails and other Rack apps (https://github.com/charliesome/better_errors)
   gem 'better_errors'
+  # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
   gem 'binding_of_caller'
+  # Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
   gem 'rails-erd'
 end
 
