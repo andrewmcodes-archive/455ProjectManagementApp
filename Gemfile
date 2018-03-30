@@ -80,7 +80,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Security vulnerability scanner for Ruby on Rails. (http://brakemanscanner.org)
   gem 'brakeman', require: false
-  # Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
   # Better error page for Rails and other Rack apps (https://github.com/charliesome/better_errors)
   gem 'better_errors'
   # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
@@ -89,6 +88,8 @@ group :development do
   gem 'rails-erd'
   # {Seed Dumper for Rails} (https://github.com/rroblak/seed_dump)
   gem 'seed_dump'
+  # let your Gemfile do the configuring (http://github.com/indirect/haml-rails)
+  gem "haml-rails", "~> 1.0"
 end
 
 group :production do
