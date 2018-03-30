@@ -1,0 +1,27 @@
+= form_for [@tenant, @project], :html => { :class => "form-horizontal project" } do |f|
+  - if @project.errors.any?
+    #error_expl.panel.panel-danger
+      .panel-heading
+        %h3.panel-title
+          = pluralize(@project.errors.count, "error")
+          prohibited this project from being saved:
+      .panel-body
+        %ul
+          - @project.errors.full_messages.each do |msg|
+            %li= msg
+  .control-group
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'form-control'
+  .control-group
+    = f.label :details, :class => 'control-label'
+    .controls
+      = f.text_field :details, :class => 'form-control'
+  .control-group
+    = f.label :expected_completion_date, :class => 'control-label'
+    .controls
+      = f.text_field :expected_completion_date, :class => 'form-control datepicker'
+  %br/
+  = f.hidden_field :tenant_id, value: params[:tenant_id], :class => 'form-control'
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), root_path, :class => 'btn btn-default'

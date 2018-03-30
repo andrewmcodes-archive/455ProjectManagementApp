@@ -1,0 +1,44 @@
+%script{:language => "JavaScript"}
+  :cdata
+    Stripe.setPublishableKey("#{ENV['STRIPE_TEST_PUBLISHABLE_KEY']}");
+= bootstrap_devise_error_messages!
+.panel.panel-default
+  .panel-heading
+    %h4= t('.sign_up', :default => "Sign up")
+  .panel-body
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form", class: 'cc_form' }) do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :password
+        %br/
+        = f.password_field :password, class: "form-control"
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, class: "form-control"
+      = fields_for( :tenant ) do |w|
+        .form-group.col-md-6.no-left-padding
+          = w.label :name, 'Organization'
+          %span.description (Unique name for your group or organization for the new account)
+          = w.text_field :name, required: true, class: "form-control"
+        .form-group.col-md-6.no-right-padding
+          = w.label :plan
+          = w.select :plan, options_for_select(Plan.options, params[:plan]), {}, required: true, class: "form-control"
+        = fields_for( :payment ) do |p|
+          .row.col-md-12
+            .form-group.col-md-4.no-left-padding
+              = p.label :card_number, "Card Number", data: { stripe: 'label' }
+              = p.text_field :card_number, class: "form-control", required: true, data: { stripe: 'number' }
+            .form-group.col-md-2
+              = p.label :card_cvv, "Card CVV", data: { stripe: 'label' }
+              = p.text_field :card_cvv, class: "form-control", required: true, data: { stripe: 'cvv' }
+            .form-group.col-md-6
+              .col-md-12
+                = p.label :card_expires, "Card Expires", data: { stripe: 'label' }
+              .col-md-3
+                = p.select :card_expires_month, options_for_select(Payment.month_options), { include_blank: 'Month' }, "data-stripe" => "exp-month", class: "form-control", required: true
+              .col-md-3
+                = p.select :card_expires_year, options_for_select(Payment.year_options.push), { include_blank: 'Year' }, class: "form-control", data: { stripe: "exp-year"}, required: true
+      = f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary"
+= render "devise/shared/links"

@@ -1,0 +1,23 @@
+.navbar.navbar-default.navbar-static-top
+  %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  %span
+    = link_to ("<i class='fa fa-rocket'></i> " +'Project Management App').html_safe, root_path, class: "navbar-brand"
+  .navbar-collapse.collapse.navbar-responsive-collapse
+    %ul.nav.navbar-nav
+      - if current_user && current_user.is_admin?
+        %li
+          = link_to "<i class='fa fa-users'></i> Add Members".html_safe, new_member_path, class: 'navbar-link btn btn-primary'
+        %li
+          = link_to "<i class='fa fa-briefcase'></i> Change Plan".html_safe, edit_plan_path, class: 'btn btn-primary navbar-link'
+    %ul.nav.navbar-right.col-md-4
+      - if current_user
+        %li.col-md-8.user-name
+          = link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Edit Profile'
+        %li.col-md-1  
+        %li.col-md-3.logout= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete)
+      - else
+        %li.col-md-4.pull-right
+          = link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign In')

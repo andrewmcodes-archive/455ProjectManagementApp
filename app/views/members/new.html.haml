@@ -1,0 +1,39 @@
+- model_class = Member
+.page-header
+  %h1= t '.title', :default => [:'helpers.titles.new', 'Invite New %{model}'], :model => model_class.model_name.human.titleize
+= form_for(@member, :html => { :class => "form login" }) do |f|
+  - if @member.errors.any?
+    #error_expl.panel.panel-danger
+      .panel-heading
+        %h3.panel-title
+          = pluralize(@member.errors.count, "error")
+          prohibited this Member from being saved:
+      .panel-body
+        %ul
+          - @member.errors.full_messages.each do |msg|
+            %li= msg
+  - if @user.errors.any?
+    #error_expl.panel.panel-danger
+      .panel-heading
+        %h3.panel-title
+          = pluralize(@user.errors.count, "error")
+          prohibited this Member from being saved:
+      .panel-body
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+  = fields_for( :user ) do |w|
+    .control-group
+      = w.label :email, :class => "control-label"
+      .controls
+        = w.text_field :email, :class => 'form-control'
+  .control-group
+    = f.label :first_name, :class => "control-label"
+    = f.text_field :first_name, :class => "form-control"
+  .control-group
+    = f.label :last_name, :class => "control-label"
+    = f.text_field :last_name, :class => "form-control"
+  %br/
+  .control-group
+    %button.btn.btn-primary{:type => "submit"}
+      Create user and invite
