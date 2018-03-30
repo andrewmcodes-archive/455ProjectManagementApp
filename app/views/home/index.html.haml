@@ -1,0 +1,35 @@
+- if current_user
+  %h3.pull-right
+    Organization: #{@tenant.name}
+  = render 'projects/list'
+- else
+  .jumbotron
+    %h2 Welcome to the Project Management Application!
+    %p.lead
+      You'll love managing your project with our SaaS application. Please take a look at our great plans
+  .row
+    .plans.clearfix
+      .col-lg-3.col-lg-offset-3.plan
+        %h2 Free Plan
+        .price.pull-right
+          Price: Free
+        .features
+          %ul
+            %li Unlimited file uploads
+            %li Responsive design
+            %li Access anywhere
+            %li 1 project
+        %p
+          = link_to 'Sign Up', new_user_registration_path(plan: 'free'), class: 'btn btn-primary sign-up'
+      .col-lg-3.plan
+        %h2 Premium Plan
+        .price.pull-right
+          Price: $10
+        .features
+          %ul
+            %li Unlimited file uploads
+            %li Responsive design
+            %li Access anywhere
+            %li.extra Unlimited projects
+        %p
+          = link_to 'Sign Up', new_user_registration_path(plan: 'premium'), class: 'btn btn-primary sign-up'

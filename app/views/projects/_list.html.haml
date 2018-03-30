@@ -1,0 +1,25 @@
+- model_class = Project
+.page-header
+  %h1= t '.title', :default => model_class.model_name.human.pluralize.titleize
+- if @projects.size > 0
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= model_class.human_attribute_name(:title)
+        %th= model_class.human_attribute_name(:details)
+        %th= model_class.human_attribute_name(:expected_completion_date)
+        %th= t '.actions', :default => t("helpers.actions")
+    %tbody
+      - @projects.each do |project|
+        %tr
+          %td= link_to project.title, tenant_project_path(project, tenant_id: @tenant.id), class: 'main-link'
+          %td= project.details
+          %td= project.expected_completion_date
+          %td
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_tenant_project_path(project, tenant_id: @tenant.id), :class => 'btn btn-default btn-xs'
+            = link_to 'Edit Users', users_tenant_project_path(project, tenant_id: @tenant.id), :class => 'btn btn-default btn-xs'
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), tenant_project_path(project, tenant_id: @tenant.id), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+- else
+  %p.lead You don't have any projects
+- if (@tenant.can_create_projects?)
+  = link_to 'New Project', new_tenant_project_path(tenant_id: @tenant.id), :class => 'btn btn-primary'
