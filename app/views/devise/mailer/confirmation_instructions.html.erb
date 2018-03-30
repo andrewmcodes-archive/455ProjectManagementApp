@@ -2,5 +2,4 @@
 
 <p><%= t('.instruction', default: 'You can confirm your account email through the link below:') %></p>
 
-<p><%= link_to t('.action', default: 'Confirm my account'),
-         user_confirmation_url(confirmation_token: @token, locale: I18n.locale) %></p>
+<p><%= link_to t('.action', default: 'Confirm my account'), user_confirmation_url(confirmation_token: @token, locale: I18n.locale) %></p>

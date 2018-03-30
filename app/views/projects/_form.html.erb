@@ -36,7 +36,6 @@
   <br />
   <%= f.hidden_field :tenant_id, value: params[:tenant_id], :class => 'form-control' %>
   <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-              root_path, :class => 'btn btn-default' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), root_path, :class => 'btn btn-default' %>
 
 <% end %>

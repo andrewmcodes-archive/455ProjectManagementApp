@@ -29,8 +29,6 @@
   </div>
   <%= f.hidden_field :project_id %>
   <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-              tenant_project_path(tenant_id: Tenant.current_tenant_id,
-                                  id: @artifact.project_id), :class => 'btn btn-default' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), tenant_project_path(tenant_id: Tenant.current_tenant_id, id: @artifact.project_id), :class => 'btn btn-default' %>
 
 <% end %>
