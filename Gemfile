@@ -87,6 +87,8 @@ group :development do
   gem 'binding_of_caller'
   # Entity-relationship diagram for your Rails models. (https://github.com/voormedia/rails-erd)
   gem 'rails-erd'
+  # {Seed Dumper for Rails} (https://github.com/rroblak/seed_dump)
+  gem 'seed_dump'
 end
 
 group :production do
