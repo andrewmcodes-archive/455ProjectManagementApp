@@ -23,11 +23,12 @@ gem 'uglifier', '>= 1.3.0'
 # Embed the V8 JavaScript interpreter into Ruby (http://github.com/cowboyd/therubyracer)
 gem 'therubyracer', platforms: :ruby
 # Bootstrap CSS toolkit for Rails 4, 3.x Asset Pipeline (https://github.com/seyhunak/twitter-bootstrap-rails)
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'
 # rdoc html with javascript search index. (https://github.com/zzak/sdoc)
 gem 'sdoc', '~> 0.4.0', group: :doc
 # An elegant, structured (X)HTML/XML templating engine. (http://haml.info/)
 gem 'haml'
+gem 'bootstrap', '~> 4.0.0'
 # Devise Bootstrap views with i18n support.
 gem 'devise-bootstrap-views'
 # A date picker for Twitter Bootstrap (https://github.com/Nerian/bootstrap-datepicker-rails)
