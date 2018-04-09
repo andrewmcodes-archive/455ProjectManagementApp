@@ -21,3 +21,4 @@
 .vscode
 /config/application.yml
 /config/secrets.yml
+.DS_Store

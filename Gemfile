@@ -35,7 +35,7 @@ gem 'bootstrap-datepicker-rails'
 # Easy multi-tenanting for Rails + Devise (https://github.com/jekuno/milia)
 gem 'milia', github: 'jekuno/milia', branch: 'issue#76'
 # AWS SDK for Ruby (http://github.com/aws/aws-sdk-ruby)
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 2.0'
 # Ruby bindings for the Stripe API (https://stripe.com/docs/api/ruby)
 gem 'stripe'
 # Create JSON structures via a Builder-style DSL (https://github.com/rails/jbuilder)
@@ -61,6 +61,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry', '~> 0.10.3'
   # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
   gem 'bootsnap', require: false
   # Automatic Ruby code style checking tool. (https://github.com/bbatsov/rubocop)
