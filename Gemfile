@@ -16,8 +16,8 @@ gem 'devise', '~> 4.2'
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '~> 3.7'
 # Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
-gem 'sass-rails', '~> 5.0'
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
+gem 'sass-rails', '~> 5.0'
 # Ruby wrapper for UglifyJS JavaScript compressor (http://github.com/lautis/uglifier)
 gem 'uglifier', '>= 1.3.0'
 # Embed the V8 JavaScript interpreter into Ruby (http://github.com/cowboyd/therubyracer)
@@ -89,7 +89,7 @@ group :development do
   # {Seed Dumper for Rails} (https://github.com/rroblak/seed_dump)
   gem 'seed_dump'
   # let your Gemfile do the configuring (http://github.com/indirect/haml-rails)
-  gem "haml-rails", "~> 1.0"
+  gem 'haml-rails', '~> 1.0'
 end
 
 # Timezone Data for TZInfo (http://tzinfo.github.io)
