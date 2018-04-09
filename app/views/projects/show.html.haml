@@ -25,6 +25,7 @@
       = model_class.human_attribute_name(:tenant_id)
       \:
   %dd= @project.tenant_id
+
 %h3 Artifacts
 = render 'artifacts/list', artifacts: @project.artifacts
 %br/

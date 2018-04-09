@@ -1,7 +1,9 @@
 - if current_user
   %h3.pull-right
     Organization: #{@tenant.name}
-  = render 'projects/list'
+  .row
+    .col-md-8.col-md-offset-2
+      = render 'projects/list'
 - else
   .jumbotron
     %h2 Welcome to the Project Management Application!
