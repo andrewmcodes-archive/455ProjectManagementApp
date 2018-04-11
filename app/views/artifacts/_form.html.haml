@@ -1,11 +1,12 @@
+
 = form_for @artifact, :html => { :class => "form-horizontal artifact" } do |f|
   - if @artifact.errors.any?
     #error_expl.panel.panel-danger
-      .panel-heading
-        %h3.panel-title
+      .card-heading
+        %h3.card-header
           = pluralize(@artifact.errors.count, "error")
           prohibited this artifact from being saved:
-      .panel-body
+      .card-body
         %ul
           - @artifact.errors.full_messages.each do |msg|
             %li= msg

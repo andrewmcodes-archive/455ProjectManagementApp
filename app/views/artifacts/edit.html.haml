@@ -1,6 +1,9 @@
 - model_class = Artifact
 .row
-  .col-md-8.offset-md-2
-    .page-header.mt-4
-      %h1= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
-    = render :partial => 'form'
+  .col-md-6.offset-md-3
+    .card
+      .card-header
+        %h3= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+      .card-body
+        .card-text
+          = render :partial => 'form'

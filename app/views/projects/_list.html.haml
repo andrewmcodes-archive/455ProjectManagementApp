@@ -1,10 +1,10 @@
 - model_class = Project
 .row
-  .col-md-8.md-offset-2
+  .col-md-12
     %h1= t '.title', :default => model_class.model_name.human.pluralize.titleize
     - if @projects.size > 0
-      %table.table.table-striped
-        %thead
+      %table.table
+        %thead.thead-dark
           %tr
             %th= model_class.human_attribute_name(:title)
             %th= model_class.human_attribute_name(:details)

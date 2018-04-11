@@ -26,6 +26,4 @@
                   = p.label :card_expires, "Card Expires", data: { stripe: 'label' }
                   = p.select :card_expires_month, options_for_select(Payment.month_options), { include_blank: 'Month' }, "data-stripe" => "exp-month", class: "form-control", required: true
                   = p.select :card_expires_year, options_for_select(Payment.year_options.push), { include_blank: 'Year' }, class: "form-control", data: { stripe: "exp-year"}, required: true
-            %br/
-            .row.col-md-12
-              = f.submit 'Update Plan', class: "btn btn-primary", id: 'update_plan'
+            = f.submit 'Update Plan', class: "btn btn-primary", id: 'update_plan'
