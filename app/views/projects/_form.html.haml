@@ -2,12 +2,12 @@
   .col-md-8.col-md-offset-2
     = form_for [@tenant, @project], :html => { :class => "form-horizontal project" } do |f|
       - if @project.errors.any?
-        #error_expl.panel.panel-danger
-          .panel-heading
-            %h3.panel-title
+        #error_expl.card.card-danger
+          .card-header
+            %h3.card-title
               = pluralize(@project.errors.count, "error")
               prohibited this project from being saved:
-          .panel-body
+          .card-body
             %ul
               - @project.errors.full_messages.each do |msg|
                 %li= msg
