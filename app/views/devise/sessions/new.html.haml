@@ -1,18 +1,23 @@
-.panel.panel-default.devise-bs
-  .panel-heading
-    %h4= t('.sign_in', default: 'Sign in')
-  .panel-body
-    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f|
-      .form-group
-        = f.label :email
-        = f.email_field :email, autofocus: true, class: 'form-control'
-      .form-group
-        = f.label :password
-        = f.password_field :password, autocomplete: 'off', class: 'form-control'
-      - if devise_mapping.rememberable?
-        .checkbox
-          = f.label :remember_me do
-            = f.check_box :remember_me
-            = t('.remember_me', default: 'Remember me')
-      = f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary'
-= render 'devise/shared/links'
+
+.col-md-6.offset-md-3
+  .card
+    .card-header
+      %h4= t('.sign_in', :default => "Sign in")
+    .card-body
+      %h5.card-title Price: $10
+      .card-text
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f|
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, class: 'form-control'
+          .form-group
+            = f.label :password
+            = f.password_field :password, autocomplete: 'off', class: 'form-control'
+          - if devise_mapping.rememberable?
+            .checkbox
+              = f.label :remember_me do
+                = f.check_box :remember_me
+                = t('.remember_me', default: 'Remember me')
+          = f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary'
+    .card-footer.text-center
+      = render 'devise/shared/links'
