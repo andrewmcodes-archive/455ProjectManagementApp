@@ -3,7 +3,6 @@
     .card-header
       %h4= t('.sign_in', :default => "Sign in")
     .card-body
-      %h5.card-title Price: $10
       .card-text
         = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f|
           .form-group
