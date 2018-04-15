@@ -1,33 +1,35 @@
 - model_class = Project
-.card
-  .card-header
-    %h3= @project.title
-    %h3
-      %small
-        Organization - #{tenant_name @project.tenant_id}
-  .card-body
-    .card-text
-      %dl.dl-horizontal
-        %dt
-          %strong
-            = model_class.human_attribute_name(:title)
-            \:
-        %dd= @project.title
-        %dt
-          %strong
-            = model_class.human_attribute_name(:details)
-            \:
-        %dd= @project.details
-        %dt
-          %strong
-            = model_class.human_attribute_name(:expected_completion_date)
-            \:
-        %dd= @project.expected_completion_date
-        %dt
-          %strong
-            = model_class.human_attribute_name(:tenant_id)
-            \:
-        %dd= @project.tenant_id
+.row.mb-5
+  .col-md-12
+    .card
+      .card-header
+        %h3= @project.title
+        %h3
+          %small
+            Organization - #{tenant_name @project.tenant_id}
+      .card-body
+        .card-text
+          %dl.dl-horizontal
+            %dt
+              %strong
+                = model_class.human_attribute_name(:title)
+                \:
+            %dd= @project.title
+            %dt
+              %strong
+                = model_class.human_attribute_name(:details)
+                \:
+            %dd= @project.details
+            %dt
+              %strong
+                = model_class.human_attribute_name(:expected_completion_date)
+                \:
+            %dd= @project.expected_completion_date
+            %dt
+              %strong
+                = model_class.human_attribute_name(:tenant_id)
+                \:
+            %dd= @project.tenant_id
 .row
   .col-md-12
     = render 'artifacts/list', artifacts: @project.artifacts

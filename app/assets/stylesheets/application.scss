@@ -2,3 +2,7 @@
  @import "font-awesome";
  @import "devise_bootstrap_views";
  @import "bootstrap-datepicker";
+ .jumbotron {
+   background-image: url("computer.jpg");
+   height: 400px;
+ }
