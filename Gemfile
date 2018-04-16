@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 # Full-stack web application framework. (http://rubyonrails.org)
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2'
 # Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/] (https://bitbucket.org/ged/ruby-pg)
 gem 'pg', '~> 0.18'
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
