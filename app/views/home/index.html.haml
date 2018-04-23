@@ -1,7 +1,8 @@
 - if current_user
   %h3
     Organization: #{@tenant.name}
-    \#{render 'projects/list'}
+
+  \#{render 'projects/list'}
 - else
   .jumbotron
     %h2 Welcome to the Project Management Application!
