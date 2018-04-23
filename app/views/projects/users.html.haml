@@ -1,4 +1,4 @@
-.row
+.row.mb-4
   .col-md-12
     .page-header
       %h3
@@ -16,7 +16,7 @@
             %td
               - if !project_user.is_admin?
                 = link_to "Remove", user_project_path(project_user.user_projects.find_by(project_id: @project.id),tenant_id: @project.tenant_id),:method => :delete,:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },:class => 'btn btn-xs btn-danger'
-    %h3
+    %h3.mt-4
       Users to add to Project #{@project.title}
     %strong (Admins don't need to be added)
     %table.table.table-striped

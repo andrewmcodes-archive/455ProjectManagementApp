@@ -10,7 +10,6 @@ class TenantsController < ApplicationController
       Tenant.transaction do
         if @tenant.update(tenant_params)
           if @tenant.plan == 'premium' && @tenant.payment.blank?
-
             @payment = Payment.new(email: tenant_params['email'],
                                    token: params[:payment]['token'],
                                    tenant: @tenant)
@@ -18,6 +17,7 @@ class TenantsController < ApplicationController
               @payment.process_payment
               @payment.save
             rescue Exception => e
+              # binding.pry
               flash[:error] = e.message
               @payment.destroy
               @tenant.plan = 'free'
