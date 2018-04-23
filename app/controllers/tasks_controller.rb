@@ -20,16 +20,16 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
     respond_to do |format|
       if @task.save
-        format.html { redirect_to root_url, notice: 'Task was successfully created.' }
+        format.html { redirect_to tenant_project_path(tenant_id: Tenant.current_tenant_id, id: @task.project_id), notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to tenant_project_tasks_url, notice: 'Task was successfully updated.' }
+        format.html { redirect_to tenant_project_path(tenant_id: Tenant.current_tenant_id, id: @task.project_id), notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
@@ -57,20 +57,20 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to tenant_project_path(tenant_id: Tenant.current_tenant_id, id: @task.project_id), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:title, :decription, :completed, :project_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def task_params
+    params.require(:task).permit(:title, :description, :completed, :project_id)
+  end
 end

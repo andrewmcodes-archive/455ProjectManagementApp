@@ -63,7 +63,7 @@ end
 
 group :development do
   gem 'guard'
-   gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'pry', '~> 0.10.3'
   # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
   gem 'bootsnap', require: false

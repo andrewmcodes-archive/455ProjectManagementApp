@@ -1,3 +1,5 @@
+- model_class = Task
+
 %p#notice= notice
 .row
   .col-md-6.offset-md-3
@@ -17,7 +19,7 @@
             %b Completed:
             = @task.completed
       .card-footer
-        = link_to 'Edit', edit_tenant_project_task_path(@task)
+        = link_to 'Edit', edit_tenant_project_task_path(tenant_id: Tenant.current_tenant_id)
         \|
-        = link_to 'Back', root_url
+        = link_to 'Back', tenant_project_path(tenant_id: Tenant.current_tenant_id, id: @task.project_id)
 
