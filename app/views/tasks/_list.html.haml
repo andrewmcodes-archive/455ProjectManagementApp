@@ -19,8 +19,10 @@
                 %td= task.description
                 %td= task.completed
                 %td
-                  = link_to t('Show'), tenant_project_task_path(id: @task.id), class: 'main-link'
-                  = link_to t('Edit'), edit_tenant_project_task_path(project_id: @project.id), class: 'main-link'
+                  = link_to t('Show'), tenant_project_task_path(project_id: @project.id), class: 'main-link mr-3'
+
+                  = link_to t('Edit'), edit_tenant_project_task_path(project_id: @project.id), class: 'main-link mr-3'
+
                   = link_to t('.destroy', :default => t("helpers.links.destroy")), tenant_project_task_path(project_id: @project.id), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
       - else
         %p.lead You don't have any tasks

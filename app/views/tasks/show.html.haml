@@ -1,15 +1,23 @@
 %p#notice= notice
+.row
+  .col-md-6.offset-md-3
+    .card
+      .card-header
+        %h3
+          Task: ##{@task.id}
+      .card-body
+        .card-text
+          %p
+            %b Title:
+            = @task.title
+          %p
+            %b Decription:
+            = @task.description
+          %p
+            %b Completed:
+            = @task.completed
+      .card-footer
+        = link_to 'Edit', edit_tenant_project_task_path(@task)
+        \|
+        = link_to 'Back', root_url
 
-%p
-  %b Title:
-  = @task.title
-%p
-  %b Decription:
-  = @task.description
-%p
-  %b Completed:
-  = @task.completed
-
-= link_to 'Edit', edit_tenant_project_task_path(@task)
-\|
-= link_to 'Back', tenant_project_tasks_path

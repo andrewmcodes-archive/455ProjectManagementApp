@@ -1,20 +1,25 @@
 = form_for @task, url: tenant_project_tasks_url do |f|
   - if @task.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      %ul
-        - @task.errors.full_messages.each do |message|
-          %li= message
+    #error_explanation.card
+      .card-heading
+        %h3= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+      .card-body
+        %ul
+          - @task.errors.full_messages.each do |message|
+            %li= message
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :completed
-    = f.date_select :completed
+  .control-group.mb-2
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'form-control'
+  .control-group.mb-4
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_field :description, :class => 'form-control'
+  .control-group.mb-4
+    = f.label :completed, :class => 'control-label'
+    .controls
+      = f.text_field :completed, class: 'form-control datepicker'
   = f.hidden_field :project_id
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'

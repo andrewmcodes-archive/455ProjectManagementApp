@@ -1,5 +1,12 @@
-%h1 New task
-
-= render 'form'
-
-= link_to 'Back', tenant_project_tasks_path
+.row
+  .col-md-6.offset-md-3
+    .card
+      .card-header
+        %h3 New Task
+      .card-body
+        .card-text
+          = render 'form'
+      .card-footer
+        = link_to 'Show', tenant_project_tasks_path
+        \|
+        = link_to 'Back', root_url

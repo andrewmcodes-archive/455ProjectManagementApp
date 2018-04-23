@@ -1,7 +1,7 @@
 
 = form_for @artifact, :html => { :class => "form-horizontal artifact" } do |f|
   - if @artifact.errors.any?
-    #error_expl.panel.panel-danger
+    #error_expl.card
       .card-heading
         %h3.card-header
           = pluralize(@artifact.errors.count, "error")
