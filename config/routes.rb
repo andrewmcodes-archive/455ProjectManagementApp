@@ -71,6 +71,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :tasks
   resources :user_projects
   resources :artifacts
   resources :tenants do

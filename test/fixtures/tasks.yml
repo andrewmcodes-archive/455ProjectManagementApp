@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  decription: MyString
+  completed: 2018-04-23
+
+two:
+  title: MyString
+  decription: MyString
+  completed: 2018-04-23
