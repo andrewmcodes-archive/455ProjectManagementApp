@@ -1,15 +1,7 @@
 # == Route Map
 #
-# I, [2018-04-23T03:16:20.765046 #35249]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
+# I, [2018-04-23T03:27:10.243998 #36147]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
 #                    Prefix Verb      URI Pattern                                                                              Controller#Action
-#                     tasks GET       /tasks(.:format)                                                                         tasks#index
-#                           POST      /tasks(.:format)                                                                         tasks#create
-#                  new_task GET       /tasks/new(.:format)                                                                     tasks#new
-#                 edit_task GET       /tasks/:id/edit(.:format)                                                                tasks#edit
-#                      task GET       /tasks/:id(.:format)                                                                     tasks#show
-#                           PATCH     /tasks/:id(.:format)                                                                     tasks#update
-#                           PUT       /tasks/:id(.:format)                                                                     tasks#update
-#                           DELETE    /tasks/:id(.:format)                                                                     tasks#destroy
 #             user_projects GET       /user_projects(.:format)                                                                 user_projects#index
 #                           POST      /user_projects(.:format)                                                                 user_projects#create
 #          new_user_project GET       /user_projects/new(.:format)                                                             user_projects#new
@@ -26,6 +18,14 @@
 #                           PATCH     /artifacts/:id(.:format)                                                                 artifacts#update
 #                           PUT       /artifacts/:id(.:format)                                                                 artifacts#update
 #                           DELETE    /artifacts/:id(.:format)                                                                 artifacts#destroy
+#      tenant_project_tasks GET       /tenants/:tenant_id/projects/:project_id/tasks(.:format)                                 tasks#index
+#                           POST      /tenants/:tenant_id/projects/:project_id/tasks(.:format)                                 tasks#create
+#   new_tenant_project_task GET       /tenants/:tenant_id/projects/:project_id/tasks/new(.:format)                             tasks#new
+#  edit_tenant_project_task GET       /tenants/:tenant_id/projects/:project_id/tasks/:id/edit(.:format)                        tasks#edit
+#       tenant_project_task GET       /tenants/:tenant_id/projects/:project_id/tasks/:id(.:format)                             tasks#show
+#                           PATCH     /tenants/:tenant_id/projects/:project_id/tasks/:id(.:format)                             tasks#update
+#                           PUT       /tenants/:tenant_id/projects/:project_id/tasks/:id(.:format)                             tasks#update
+#                           DELETE    /tenants/:tenant_id/projects/:project_id/tasks/:id(.:format)                             tasks#destroy
 #      users_tenant_project GET       /tenants/:tenant_id/projects/:id/users(.:format)                                         projects#users
 #   add_user_tenant_project PUT       /tenants/:tenant_id/projects/:id/add_user(.:format)                                      projects#add_user
 #           tenant_projects GET       /tenants/:tenant_id/projects(.:format)                                                   projects#index
@@ -85,11 +85,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :tasks
   resources :user_projects
   resources :artifacts
   resources :tenants do
     resources :projects do
+      resources :tasks
       get 'users', on: :member
       put 'add_user', on: :member
     end

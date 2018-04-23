@@ -16,10 +16,10 @@
         %td= task.title
         %td= task.decription
         %td= task.completed
-        %td= link_to 'Show', task
-        %td= link_to 'Edit', edit_task_path(task)
-        %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
+        -# %td= link_to 'Show', tenant_project_task_path
+        -# %td= link_to 'Edit', edit_tenant_project_task_path(task)
+        -# %td= link_to 'Destroy', tenant_project_task(task), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Task', new_task_path
+= link_to 'New Task', new_tenant_project_task_path

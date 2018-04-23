@@ -15,6 +15,11 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+
+    @task.project_id = params[:project_id]
+    # binding.pry
+
+    # @task.tenant_id = params[:tenant_id]
   end
 
   # GET /tasks/1/edit
@@ -28,7 +33,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to tenant_project_tasks_url, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
@@ -69,6 +74,10 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :decription, :completed)
+      params.require(:task).permit(:title, :decription, :completed, :project_id)
+    end
+
+    def project_params
+      params.require(:project).permit(:title, :details, :expected_completion_date, :tenant_id)
     end
 end
