@@ -1,3 +1,5 @@
+- model_class = Task
+
 .row
   .col-md-6.offset-md-3
     .card
@@ -9,4 +11,4 @@
       .card-footer
         = link_to 'Show', tenant_project_tasks_path
         \|
-        = link_to 'Back', root_url
+        = link_to 'Back', tenant_project_path(Tenant.current_tenant_id, @task.project_id)
