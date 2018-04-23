@@ -16,7 +16,9 @@ gem 'devise', '~> 4.2'
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '~> 3.7'
 # Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
+# Ruby CoffeeScript Compiler (http://github.com/josh/ruby-coffee-script)
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
+# Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
 gem 'sass-rails', '~> 5.0'
 # Ruby wrapper for UglifyJS JavaScript compressor (http://github.com/lautis/uglifier)
 gem 'uglifier', '>= 1.3.0'
@@ -27,8 +29,10 @@ gem 'therubyracer', platforms: :ruby
 # rdoc html with javascript search index. (https://github.com/zzak/sdoc)
 gem 'sdoc', '~> 0.4.0', group: :doc
 # An elegant, structured (X)HTML/XML templating engine. (http://haml.info/)
-gem 'haml'
+# The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com (https://github.com/twbs/bootstrap-rubygem)
 gem 'bootstrap', '~> 4.0.0'
+# An elegant, structured (X)HTML/XML templating engine. (http://haml.info/)
+gem 'haml'
 # Devise Bootstrap views with i18n support.
 gem 'devise-bootstrap-views'
 # A date picker for Twitter Bootstrap (https://github.com/Nerian/bootstrap-datepicker-rails)
@@ -62,8 +66,11 @@ group :development, :test do
 end
 
 group :development do
+  # Guard keeps an eye on your file modifications (http://guardgem.org)
   gem 'guard'
+  # Guard plugin for livereload (https://rubygems.org/gems/guard-livereload)
   gem 'guard-livereload', '~> 2.5', require: false
+  # An IRB alternative and runtime developer console (http://pryrepl.org)
   gem 'pry', '~> 0.10.3'
   # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
   gem 'bootsnap', require: false

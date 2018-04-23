@@ -1,7 +1,15 @@
 # == Route Map
 #
-# I, [2018-04-23T03:27:10.243998 #36147]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
+# I, [2018-04-23T17:09:20.556951 #70143]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
 #                    Prefix Verb      URI Pattern                                                                              Controller#Action
+#                user_tasks GET       /user_tasks(.:format)                                                                    user_tasks#index
+#                           POST      /user_tasks(.:format)                                                                    user_tasks#create
+#             new_user_task GET       /user_tasks/new(.:format)                                                                user_tasks#new
+#            edit_user_task GET       /user_tasks/:id/edit(.:format)                                                           user_tasks#edit
+#                 user_task GET       /user_tasks/:id(.:format)                                                                user_tasks#show
+#                           PATCH     /user_tasks/:id(.:format)                                                                user_tasks#update
+#                           PUT       /user_tasks/:id(.:format)                                                                user_tasks#update
+#                           DELETE    /user_tasks/:id(.:format)                                                                user_tasks#destroy
 #             user_projects GET       /user_projects(.:format)                                                                 user_projects#index
 #                           POST      /user_projects(.:format)                                                                 user_projects#create
 #          new_user_project GET       /user_projects/new(.:format)                                                             user_projects#new
@@ -84,7 +92,10 @@
 
 # frozen_string_literal: true
 
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  resources :user_tasks
   resources :user_projects
   resources :artifacts
   resources :tenants do
