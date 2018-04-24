@@ -14,6 +14,7 @@
 #
 
 class Member < ApplicationRecord
+  searchkick
   belongs_to :user
   acts_as_tenant
 
