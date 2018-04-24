@@ -21,6 +21,10 @@
     .controls
       = f.text_field :completed, class: 'form-control datepicker'
   .control-group.mb-4
+    = f.label :expected_completion_date, :class => 'control-label'
+    .controls
+      = f.text_field :expected_completion_date, class: 'form-control datepicker'
+  .control-group.mb-4
     = f.label :assigned_to, :class => 'control-label'
     .controls
       = f.text_field :assigned_to, class: 'form-control'

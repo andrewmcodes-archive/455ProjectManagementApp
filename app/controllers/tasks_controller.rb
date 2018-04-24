@@ -7,7 +7,9 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
-    @task_months = @tasks.group_by { |t| t.due_at.beginning_of_month }
+    # @tasks = Task.group(params[:expected_completion_date])
+    # binding.pry
+    # @task_months = @tasks.group_by { |t| t.expected_completion_date.beginning_of_month }
   end
 
   # GET /tasks/1
@@ -73,6 +75,6 @@ class TasksController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
-    params.require(:task).permit(:title, :description, :completed, :assigned_to, :project_id)
+    params.require(:task).permit(:title, :description, :expected_completion_date, :completed, :assigned_to, :project_id)
   end
 end

@@ -57,6 +57,8 @@ gem 'sentry-raven'
 gem 'oink'
 # Searchkick learns what your users are looking for. As more people search, it gets smarter and the results get better. It’s friendly for developers - and magical for your users. (https://github.com/ankane/searchkick)
 gem 'searchkick'
+gem 'filterrific'
+
 
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)

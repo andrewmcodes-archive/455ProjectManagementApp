@@ -1,7 +1,9 @@
 - model_class = Task
 .card
   .card-header
-    %h3= t '.title', :default => model_class.model_name.human.pluralize.titleize, class: "card-body"
+    .row
+      .col-md-6
+        %h3= t '.title', :default => model_class.model_name.human.pluralize.titleize, class: "card-body"
   .card-body
     .card-text
       - if @project.tasks.size > 0
@@ -10,6 +12,7 @@
             %tr
               %th= model_class.human_attribute_name(:title)
               %th= model_class.human_attribute_name(:description)
+              %th= model_class.human_attribute_name(:expected_completion_date)
               %th= model_class.human_attribute_name(:completed)
               %th= model_class.human_attribute_name(:assigned_to)
               %th= t '.actions', :default => t("helpers.actions")
@@ -18,6 +21,7 @@
               %tr
                 %td= task.title
                 %td= task.description
+                %td= task.expected_completion_date
                 %td= task.completed
                 %td= task.assigned_to
                 %td
