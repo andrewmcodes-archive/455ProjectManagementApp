@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy users add_user]
   before_action :set_tenant, only: %i[show edit update destroy new create users add_user]
   before_action :verify_tenant
-
+  before_action :check_future, only: %i[edit update new create]
   # GET /projects
   # GET /projects.json
   def index
@@ -21,12 +21,15 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1/edit
-  def edit; end
+  def edit
+    # check_future
+  end
 
   # POST /projects
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    # check_future
     @project.users << current_user
     respond_to do |format|
       if @project.save
@@ -40,6 +43,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    # check_future
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to root_url, notice: 'Project was successfully updated.' }
@@ -84,6 +88,12 @@ class ProjectsController < ApplicationController
 
   private
 
+  def check_future
+    # if @project.expected_completion_date.to_date.future? == false
+    #   redirect_to users_tenant_project_url(id: @project.id, tenant_id: @project.tenant_id),
+    #               error: 'User was not added to project'
+    # end
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = Project.find(params[:id])

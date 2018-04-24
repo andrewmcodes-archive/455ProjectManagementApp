@@ -26,6 +26,8 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    @task.project_id = params[:project_id]
+
     respond_to do |format|
       if @task.save
         format.html { redirect_to tenant_project_path(tenant_id: Tenant.current_tenant_id, id: @task.project_id), notice: 'Task was successfully created.' }
