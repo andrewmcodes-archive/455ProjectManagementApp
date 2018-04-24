@@ -26,7 +26,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-
     @project = Project.new(project_params)
     @project.users << current_user
     respond_to do |format|
@@ -96,7 +95,6 @@ class ProjectsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = Project.find(params[:id])
-    # @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

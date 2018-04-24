@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Route Map
 #
 # I, [2018-04-23T17:09:20.556951 #70143]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
@@ -88,7 +90,7 @@
 #        rails_disk_service GET       /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
 # update_rails_disk_service PUT       /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #      rails_direct_uploads POST      /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
-# 
+#
 
 # frozen_string_literal: true
 
