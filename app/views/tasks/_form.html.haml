@@ -1,4 +1,4 @@
-= form_for @task, url: tenant_project_tasks_url do |f|
+= form_for @task, url: tenant_project_tasks_url, :method => :POST do |f|
   - if @task.errors.any?
     #error_explanation.card
       .card-heading
@@ -20,6 +20,10 @@
     = f.label :completed, :class => 'control-label'
     .controls
       = f.text_field :completed, class: 'form-control datepicker'
+  .control-group.mb-4
+    = f.label :assigned_to, :class => 'control-label'
+    .controls
+      = f.text_field :assigned_to, class: 'form-control'
   = f.hidden_field :project_id
   .actions
     = f.submit nil, class: 'btn btn-primary'

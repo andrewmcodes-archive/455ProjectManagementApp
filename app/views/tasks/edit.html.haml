@@ -6,7 +6,35 @@
         %h3 Editing task
       .card-body
         .card-text
-          = render 'form'
+          = form_for @task, url: tenant_project_task_url do |f|
+            - if @task.errors.any?
+              #error_explanation.card
+                .card-heading
+                  %h3= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+                .card-body
+                  %ul
+                    - @task.errors.full_messages.each do |message|
+                      %li= message
+
+            .control-group.mb-2
+              = f.label :title, :class => 'control-label'
+              .controls
+                = f.text_field :title, :class => 'form-control'
+            .control-group.mb-4
+              = f.label :description, :class => 'control-label'
+              .controls
+                = f.text_field :description, :class => 'form-control'
+            .control-group.mb-4
+              = f.label :completed, :class => 'control-label'
+              .controls
+                = f.text_field :completed, class: 'form-control datepicker'
+            .control-group.mb-4
+              = f.label :assigned_to, :class => 'control-label'
+              .controls
+                = f.text_field :assigned_to, class: 'form-control'
+            = f.hidden_field :project_id
+            .actions
+              = f.submit nil, class: 'btn btn-primary'
       .card-footer
         = link_to 'Show', tenant_project_task_path
         \|

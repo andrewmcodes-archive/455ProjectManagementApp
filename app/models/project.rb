@@ -17,10 +17,10 @@ class Project < ApplicationRecord
   belongs_to :tenant
   has_many :artifacts, dependent: :destroy
   has_many :user_projects, dependent: :destroy
-  has_many :users, through: :user_projects
+  has_many :users, through: :user_projects, dependent: :destroy
   validates_uniqueness_of :title
   validate :free_plan_can_only_have_one_project
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   def free_plan_can_only_have_one_project
     errors.add(:base, 'Free plans cannot have more than one project') if new_record? && (tenant.projects.count > 0) && (tenant.plan == 'free')
   end
