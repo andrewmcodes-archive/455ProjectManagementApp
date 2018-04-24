@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.by_user_plan_and_tenant(params[:tenant_id], current_user)
-
   end
 
   # GET /projects/1
@@ -18,8 +17,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
-
     @project = Project.new
   end
 
@@ -29,7 +26,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
 
     @project = Project.new(project_params)
     @project.users << current_user
@@ -45,8 +41,6 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
-
     # check_future
     respond_to do |format|
       if @project.update(project_params)
@@ -60,8 +54,6 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
-
     @project.destroy
     respond_to do |format|
       format.html { redirect_to root_url, notice: 'Project was successfully destroyed.' }
@@ -76,7 +68,6 @@ class ProjectsController < ApplicationController
 
   def add_user
     @project_user = UserProject.new(user_id: params[:user_id], project_id: @project.id)
-    @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
 
     respond_to do |format|
       if @project_user.save
@@ -105,9 +96,7 @@ class ProjectsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = Project.find(params[:id])
-    @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
-    # @project_having = Project.having('SUM(tenant_id) > 0').group('expected_completion_date')
-
+    # @project_months = Project.select("date(created_at) as ordered_date").group("date(created_at)")
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

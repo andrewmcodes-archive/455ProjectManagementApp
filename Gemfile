@@ -55,6 +55,7 @@ gem 'figaro'
 gem 'sentry-raven'
 # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
 gem 'oink'
+gem 'searchkick'
 
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
