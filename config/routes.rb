@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 # == Route Map
 #
-# I, [2018-04-23T17:09:20.556951 #70143]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
+# I, [2018-04-24T02:05:18.182586 #28636]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
 #                    Prefix Verb      URI Pattern                                                                              Controller#Action
 #                user_tasks GET       /user_tasks(.:format)                                                                    user_tasks#index
 #                           POST      /user_tasks(.:format)                                                                    user_tasks#create
@@ -91,10 +89,6 @@
 # update_rails_disk_service PUT       /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #      rails_direct_uploads POST      /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 #
-
-# frozen_string_literal: true
-
-# frozen_string_literal: true
 
 Rails.application.routes.draw do
   resources :user_tasks
