@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.by_user_plan_and_tenant(params[:tenant_id], current_user)
+
   end
 
   # GET /projects/1
