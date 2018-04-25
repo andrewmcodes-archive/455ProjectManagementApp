@@ -56,8 +56,7 @@ gem 'sentry-raven'
 # Log parser to identify actions which significantly increase VM heap size (http://github.com/noahd1/oink)
 gem 'oink'
 # Searchkick learns what your users are looking for. As more people search, it gets smarter and the results get better. It’s friendly for developers - and magical for your users. (https://github.com/ankane/searchkick)
-gem 'searchkick'
-gem 'filterrific'
+
 
 
 group :development, :test do

@@ -13,7 +13,6 @@
 #
 
 class Artifact < ApplicationRecord
-  searchkick
   before_save :upload_to_s3
   attr_accessor :upload
   belongs_to :project

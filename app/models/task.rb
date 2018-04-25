@@ -17,7 +17,6 @@
 #
 
 class Task < ApplicationRecord
-  searchkick
   belongs_to :project
   has_many :user_tasks
 end
