@@ -51,6 +51,8 @@ gem 'figaro'
 gem 'oink'
 # help to kill N+1 queries and unused eager loading. (https://github.com/flyerhzm/bullet)
 gem 'bullet'
+# Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
+gem 'bootsnap', require: false
 
 group :development, :test do
   # Ruby fast debugger - base + CLI (http://github.com/deivid-rodriguez/byebug)
@@ -68,8 +70,6 @@ group :development do
   gem 'guard-livereload', '~> 2.5', require: false
   # An IRB alternative and runtime developer console (http://pryrepl.org)
   gem 'pry', '~> 0.10.3'
-  # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
-  gem 'bootsnap', require: false
   # Automatic Ruby code style checking tool. (https://github.com/bbatsov/rubocop)
   gem 'rubocop'
   # Annotates Rails Models, routes, fixtures, and others based on the database schema. (http://github.com/ctran/annotate_models)
