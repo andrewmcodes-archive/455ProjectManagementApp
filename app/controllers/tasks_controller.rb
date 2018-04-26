@@ -7,18 +7,17 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @project = Project.find_by_id(params[:project_id])
-    @completion_date = Task.select(:id, :expected_completion_date).having('expected_completion_date > ?',Time.now ).group(:id).where(project_id: params[:project_id])
-    if params[:search]
-      @tasks = Task.search(params[:search])
-    else
-      @tasks = Task.find_by_project_id(params[:project_id])
-    end
+    @completion_date = Task.select(:id, :expected_completion_date).having('expected_completion_date > ?', Time.now).group(:id).where(project_id: params[:project_id])
+    @tasks = if params[:search]
+               Task.search(params[:search])
+             else
+               Task.find_by_project_id(params[:project_id])
+             end
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
-  def show;
-  end
+  def show; end
 
   # GET /tasks/new
   def new
@@ -70,7 +69,6 @@ class TasksController < ApplicationController
   end
 
   private
-
 
   # Use callbacks to share common setup or constraints between actions.
   def set_task

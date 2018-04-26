@@ -20,6 +20,6 @@ class Task < ApplicationRecord
   belongs_to :project
 
   def self.search(search)
-    where("title ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%")
+    where('title ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%")
   end
 end
