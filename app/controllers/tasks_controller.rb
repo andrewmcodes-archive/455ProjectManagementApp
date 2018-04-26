@@ -6,12 +6,10 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-
     @project = Project.find_by_id(params[:project_id])
     @tenant = Tenant.find_by_id(@project.tenant_id)
     @tasks = Task.find_by_project_id(params[:project_id])
     @completion_date = Task.select(:id, :expected_completion_date).having('expected_completion_date > ?',Time.now ).group(:id).where(project_id: params[:project_id])
-    binding.pry
   end
 
   # GET /tasks/1

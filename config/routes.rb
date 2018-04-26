@@ -1,6 +1,6 @@
 # == Route Map
 #
-# I, [2018-04-24T02:05:18.182586 #28636]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
+# I, [2018-04-26T11:35:47.252499 #31307]  INFO -- sentry: ** [Raven] Raven 2.7.2 configured not to capture errors: No secret_key specified
 #                    Prefix Verb      URI Pattern                                                                              Controller#Action
 #                user_tasks GET       /user_tasks(.:format)                                                                    user_tasks#index
 #                           POST      /user_tasks(.:format)                                                                    user_tasks#create
@@ -88,7 +88,7 @@
 #        rails_disk_service GET       /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
 # update_rails_disk_service PUT       /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #      rails_direct_uploads POST      /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
-#
+# 
 
 Rails.application.routes.draw do
   resources :user_tasks

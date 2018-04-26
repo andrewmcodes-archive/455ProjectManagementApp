@@ -15,7 +15,7 @@
             .form-group.col-md-12
               = f.label :plan
               = f.select :plan, options_for_select(Plan.options, @tenant.plan ), {}, required: true, class: "form-control"
-            - if @tenant.payment.blank?
+            - if @tenant.payment.blank? || @tenant.payment
               = fields_for( :payment ) do |p|
                 .form-group.col-md-12
                   = p.label :card_number, "Card Number", data: { stripe: 'label' }
