@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # == Route Map
 #
-# I, [2018-04-24T02:05:18.182586 #28636]  INFO -- sentry: ** [Raven] Raven 2.7.2 ready to catch errors
+# I, [2018-04-26T11:35:47.252499 #31307]  INFO -- sentry: ** [Raven] Raven 2.7.2 configured not to capture errors: No secret_key specified
 #                    Prefix Verb      URI Pattern                                                                              Controller#Action
 #                user_tasks GET       /user_tasks(.:format)                                                                    user_tasks#index
 #                           POST      /user_tasks(.:format)                                                                    user_tasks#create

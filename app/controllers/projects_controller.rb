@@ -13,7 +13,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   # GET /projects/1.json
-  def show; end
+  def show
+    @tasks = Task.where(project_id: @project.id)
+    @completion_date = Task.select(:id, :expected_completion_date).having('expected_completion_date > ?', Time.now).group(:id).where(project_id: @project.id)
+    @project_users = Tenant.joins(:projects).joins(:users).count
+  end
 
   # GET /projects/new
   def new

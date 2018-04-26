@@ -17,7 +17,9 @@
 #
 
 class Task < ApplicationRecord
-  searchkick
   belongs_to :project
-  has_many :user_tasks
+
+  def self.search(search)
+    where('title ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%")
+  end
 end

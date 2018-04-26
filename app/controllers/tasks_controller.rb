@@ -6,14 +6,18 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
-    @tasks.group(:expected_completion_date)
+    @project = Project.find_by_id(params[:project_id])
+    @completion_date = Task.select(:id, :expected_completion_date).having('expected_completion_date > ?', Time.now).group(:id).where(project_id: params[:project_id])
+    @tasks = if params[:search]
+               Task.search(params[:search])
+             else
+               Task.find_by_project_id(params[:project_id])
+             end
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
-  def show;
-  end
+  def show; end
 
   # GET /tasks/new
   def new
@@ -28,7 +32,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.project_id = params[:project_id]
-    @completion_date = Task.group(:expected_completion_date).count
 
     respond_to do |format|
       if @task.save
@@ -64,10 +67,9 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   private
 
-  
   # Use callbacks to share common setup or constraints between actions.
   def set_task
     @task = Task.find(params[:id])
@@ -75,6 +77,6 @@ class TasksController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
-    params.require(:task).permit(:title, :description, :expected_completion_date, :completed, :assigned_to, :project_id)
+    params.require(:task).permit(:title, :description, :expected_completion_date, :completed, :assigned_to, :project_id, :search)
   end
 end

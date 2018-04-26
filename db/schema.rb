@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_423_210_226) do
+ActiveRecord::Schema.define(version: 20_180_426_153_335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -102,19 +102,6 @@ ActiveRecord::Schema.define(version: 20_180_423_210_226) do
     t.index ['user_id'], name: 'index_user_projects_on_user_id'
   end
 
-  create_table 'user_tasks', force: :cascade do |t|
-    t.bigint 'tasks_id'
-    t.bigint 'user_id'
-    t.bigint 'tenant_id'
-    t.bigint 'project_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['project_id'], name: 'index_user_tasks_on_project_id'
-    t.index ['tasks_id'], name: 'index_user_tasks_on_tasks_id'
-    t.index ['tenant_id'], name: 'index_user_tasks_on_tenant_id'
-    t.index ['user_id'], name: 'index_user_tasks_on_user_id'
-  end
-
   create_table 'users', force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
@@ -150,8 +137,4 @@ ActiveRecord::Schema.define(version: 20_180_423_210_226) do
   add_foreign_key 'tenants', 'tenants'
   add_foreign_key 'user_projects', 'projects'
   add_foreign_key 'user_projects', 'users'
-  add_foreign_key 'user_tasks', 'projects'
-  add_foreign_key 'user_tasks', 'tasks', column: 'tasks_id'
-  add_foreign_key 'user_tasks', 'tenants'
-  add_foreign_key 'user_tasks', 'users'
 end

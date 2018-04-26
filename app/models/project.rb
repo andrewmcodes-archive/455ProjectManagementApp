@@ -14,7 +14,6 @@
 #
 
 class Project < ApplicationRecord
-  searchkick
   belongs_to :tenant
   has_many :artifacts, dependent: :destroy
   has_many :user_projects, dependent: :destroy

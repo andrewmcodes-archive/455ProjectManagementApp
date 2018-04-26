@@ -15,7 +15,9 @@
             %strong
               = model_class.human_attribute_name(:key)
               \:
-          %dd= @artifact.key
+          %dd
+            = link_to @artifact.key
+
           %dt
             %strong
               = model_class.human_attribute_name(:project_id)
