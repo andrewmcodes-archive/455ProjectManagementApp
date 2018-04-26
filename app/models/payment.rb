@@ -16,6 +16,7 @@ class Payment < ApplicationRecord
   belongs_to :tenant
   attr_accessor :card_number, :card_cvv, :card_expires_month, :card_expires_year
 
+
   def self.month_options
     Date::MONTHNAMES.compact.each_with_index.map { |name, i| ["#{i + 1} - #{name}", i + 1] }
   end

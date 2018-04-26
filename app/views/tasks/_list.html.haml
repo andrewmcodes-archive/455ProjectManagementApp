@@ -6,7 +6,9 @@
         %h3= t '.title', :default => model_class.model_name.human.pluralize.titleize, class: "card-body"
   .card-body
     .card-text
-      - if @project.tasks.size > 0
+      - if @tasks
+        %h4
+          Due: #{@completion_date.length}
         %table.table
           %thead.thead-dark
             %tr
