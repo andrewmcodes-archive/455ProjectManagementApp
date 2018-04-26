@@ -16,11 +16,14 @@
                 %th= model_class.human_attribute_name(:title)
                 %th= model_class.human_attribute_name(:details)
                 %th= model_class.human_attribute_name(:expected_completion_date)
+                %th
+                  Users in this Project
             %tbody
               %tr
                 %td= @project.title
                 %td= @project.details
                 %td= @project.expected_completion_date
+                %td= @project_users - 1
 .row
   .col-md-12
     = render 'artifacts/list', artifacts: @project.artifacts
