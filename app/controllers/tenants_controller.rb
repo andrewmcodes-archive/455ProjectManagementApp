@@ -21,7 +21,7 @@ class TenantsController < ApplicationController
               @payment.destroy
               @tenant.plan = 'free'
               @tenant.save
-              render edit_tenant_path(@tenant)
+              # render edit_tenant_path(@tenant)
             end
           end
           format.html { redirect_to edit_plan_path, notice: 'Plan was successfully updated' }
