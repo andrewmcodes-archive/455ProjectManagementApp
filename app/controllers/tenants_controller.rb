@@ -17,17 +17,16 @@ class TenantsController < ApplicationController
               @payment.process_payment
               @payment.save
             rescue Exception => e
-              # binding.pry
               flash[:error] = e.message
               @payment.destroy
               @tenant.plan = 'free'
               @tenant.save
-              redirect_to edit_tenant_path(@tenant)
+              render edit_tenant_path(@tenant)
             end
           end
           format.html { redirect_to edit_plan_path, notice: 'Plan was successfully updated' }
         else
-          format.html { render :edit }
+          format.html { render :edit, notice: 'WTF' }
         end
       end
     end

@@ -5,6 +5,7 @@
     .card
       .card-header
         %h1= t '.Edit plan'
+        %p= "Current plan: #{@tenant.plan.capitalize}"
       .card-body
         .card-text
           = form_for @tenant, url: update_plan_path, html: { class: "#{class_name_for_tenant_form(@tenant)}" } do |f|
@@ -15,7 +16,7 @@
             .form-group.col-md-12
               = f.label :plan
               = f.select :plan, options_for_select(Plan.options, @tenant.plan ), {}, required: true, class: "form-control"
-            - if @tenant.payment.blank? || @tenant.payment
+            - if @tenant.payment.blank?
               = fields_for( :payment ) do |p|
                 .form-group.col-md-12
                   = p.label :card_number, "Card Number", data: { stripe: 'label' }
