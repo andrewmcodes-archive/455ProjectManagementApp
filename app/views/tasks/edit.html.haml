@@ -36,6 +36,7 @@
               = f.label :assigned_to, :class => 'control-label'
               .controls
                 = f.text_field :assigned_to, class: 'form-control'
+                %small.form-text.text-muted Enter a member's email
             = f.hidden_field :project_id
             .actions
               = f.submit nil, class: 'btn btn-primary'
